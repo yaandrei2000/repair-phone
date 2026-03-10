@@ -21,7 +21,7 @@ export function Hero() {
           {/* Title */}
           <h1 className="font-serif text-[40px] font-normal leading-tight text-foreground md:text-[64px] md:font-bold">
             Ремонтируем смартфоны всех брендов с гарантией{" "}
-            <span className="text-primary">12 месяцев</span>
+            <span>12 месяцев</span>
           </h1>
 
           {/* Subtitle */}
@@ -32,11 +32,19 @@ export function Hero() {
 
           {/* CTA Buttons */}
           <div className="flex flex-row gap-2 md:gap-3">
-            <Button variant="default" size="default" className="flex-1 md:flex-none">
+            <Button
+              variant="default"
+              size="default"
+              className="flex-1 md:flex-none"
+            >
               <span className="md:hidden">Записаться</span>
               <span className="hidden md:inline">Записаться на ремонт</span>
             </Button>
-            <Button variant="outline" size="default" className="flex-1 md:flex-none">
+            <Button
+              variant="outline"
+              size="default"
+              className="flex-1 md:flex-none"
+            >
               <span className="md:hidden">Прайс</span>
               <span className="hidden md:inline">Смотреть прайс</span>
             </Button>
@@ -56,7 +64,9 @@ export function Hero() {
           {/* Trust */}
           <p className="text-xs font-semibold text-primary md:text-sm md:font-normal">
             <span className="md:hidden">4.9/5 • 1 200+ отзывов</span>
-            <span className="hidden md:inline">4.9/5 на основе 1 200+ отзывов клиентов</span>
+            <span className="hidden md:inline">
+              4.9/5 на основе 1 200+ отзывов клиентов
+            </span>
           </p>
 
           {/* Decorative ribbons - desktop */}

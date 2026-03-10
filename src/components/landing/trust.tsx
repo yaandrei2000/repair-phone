@@ -1,5 +1,5 @@
-import { Badge } from "@/components/ui/badge"
-import { Card, CardContent, CardHeader } from "@/components/ui/card"
+import { Badge } from "@/components/ui/badge";
+import { Card, CardContent, CardHeader } from "@/components/ui/card";
 
 const stats = [
   {
@@ -17,7 +17,7 @@ const stats = [
     value: "12 мес.",
     badge: "на работы и детали",
   },
-]
+];
 
 const steps = [
   {
@@ -38,7 +38,7 @@ const steps = [
     description:
       "Получаете готовый телефон, акт работ и гарантию до 12 месяцев.",
   },
-]
+];
 
 export function Trust() {
   return (
@@ -46,7 +46,7 @@ export function Trust() {
       <div className="container mx-auto flex max-w-[1440px] flex-col gap-3 px-[18px] pb-[34px] pt-[30px] md:gap-6 md:px-16 md:pb-20 md:pt-14">
         <h2 className="font-serif text-[30px] font-normal text-foreground md:text-[44px]">
           <span className="md:hidden">Почему выбирают нас</span>
-          <span className="hidden md:inline">Почему выбирают Ремонт</span>
+          <span className="hidden md:inline">Почему выбирают нас</span>
         </h2>
 
         {/* Stats */}
@@ -90,5 +90,5 @@ export function Trust() {
         </div>
       </div>
     </section>
-  )
+  );
 }

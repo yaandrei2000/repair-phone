@@ -74,9 +74,6 @@ export function Services() {
               </div>
               <div className="flex items-center justify-between px-4 pb-4 md:px-5 md:pb-5">
                 <Badge variant="default">{service.duration}</Badge>
-                <Button variant="default" size="default">
-                  Выбрать
-                </Button>
               </div>
             </Card>
           ))}

@@ -3,7 +3,7 @@ import "./globals.css";
 import { TooltipProvider } from "@/components/ui/tooltip";
 
 export const metadata: Metadata = {
-  title: "Ремонт - Ремонт смартфонов",
+  title: "Крутой Сервис - Ремонт смартфонов",
   description: "Ремонтируем смартфоны всех брендов с гарантией 12 месяцев",
 };
 
