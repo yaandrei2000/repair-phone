@@ -66,8 +66,13 @@ export function Header() {
           >
             <a href="tel:+79066150006">Позвонить</a>
           </Button>
-          <Button variant="default" size="default" className="hidden md:flex">
-            Оставить заявку
+          <Button
+            variant="default"
+            size="default"
+            className="hidden md:flex"
+            asChild
+          >
+            <Link href="/#contact-form">Оставить заявку</Link>
           </Button>
         </div>
       </div>

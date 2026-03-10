@@ -69,7 +69,7 @@ export function Trust() {
         </div>
 
         {/* Steps - hidden on mobile */}
-        <div className="mt-6 hidden grid-cols-1 gap-4 md:grid md:grid-cols-3">
+        <div className="hidden grid-cols-1 gap-4 md:grid md:grid-cols-3">
           {steps.map((step, index) => (
             <Card key={index}>
               <CardHeader className="flex flex-col gap-1.5">

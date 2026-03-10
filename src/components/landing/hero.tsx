@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 
@@ -36,17 +37,23 @@ export function Hero() {
               variant="default"
               size="default"
               className="flex-1 md:flex-none"
+              asChild
             >
-              <span className="md:hidden">Записаться</span>
-              <span className="hidden md:inline">Записаться на ремонт</span>
+              <Link href="/#contact-form">
+                <span className="md:hidden">Записаться</span>
+                <span className="hidden md:inline">Записаться на ремонт</span>
+              </Link>
             </Button>
             <Button
               variant="outline"
               size="default"
               className="flex-1 md:flex-none"
+              asChild
             >
-              <span className="md:hidden">Прайс</span>
-              <span className="hidden md:inline">Смотреть прайс</span>
+              <Link href="/pricing">
+                <span className="md:hidden">Прайс</span>
+                <span className="hidden md:inline">Смотреть прайс</span>
+              </Link>
             </Button>
           </div>
 

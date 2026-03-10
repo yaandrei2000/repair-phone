@@ -1,3 +1,4 @@
+import Link from "next/link"
 import { Header } from "@/components/landing/header"
 import { Footer } from "@/components/landing/footer"
 import { PricingTable } from "@/components/pricing/pricing-table"
@@ -18,8 +19,13 @@ export default function PricingPage() {
               после бесплатной диагностики.
             </p>
             <div className="flex flex-col gap-2 md:flex-row md:items-center md:gap-4">
-              <Button variant="default" size="default" className="w-full md:w-auto">
-                Записаться на ремонт
+              <Button
+                variant="default"
+                size="default"
+                className="w-full md:w-auto"
+                asChild
+              >
+                <Link href="/#contact-form">Записаться на ремонт</Link>
               </Button>
               <p className="text-xs text-muted-foreground md:text-sm">
                 * Диагностика бесплатна при любом ремонте

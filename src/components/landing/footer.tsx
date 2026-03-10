@@ -6,7 +6,7 @@ const reviewsLink =
 export function Footer() {
   return (
     <footer className="w-full border-t border-border bg-[#0A0A0A]">
-      <div className="container mx-auto flex max-w-[1440px] flex-col gap-2 px-[18px] py-5 md:gap-2.5 md:px-16 md:py-7">
+      <div className="container mx-auto flex max-w-[1440px] flex-col gap-4 px-[18px] py-8 md:gap-5 md:px-16 md:py-12">
         <div className="flex flex-col gap-2 md:flex-row md:items-center md:justify-between">
           <Link href="/">
             <p className="font-serif text-base font-medium text-foreground md:text-lg">
@@ -16,13 +16,13 @@ export function Footer() {
           <nav className="flex flex-col gap-2 md:flex-row md:items-center md:gap-6">
             <Link
               href="/services"
-              className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+              className="text-sm font-medium tracking-wider text-muted-foreground transition-colors hover:text-foreground font-sans"
             >
               Услуги
             </Link>
             <Link
               href="/pricing"
-              className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+              className="text-sm font-medium tracking-wider text-muted-foreground transition-colors hover:text-foreground font-sans"
             >
               Прайс
             </Link>
@@ -30,20 +30,20 @@ export function Footer() {
               href={reviewsLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+              className="text-sm font-medium tracking-wider text-muted-foreground transition-colors hover:text-foreground font-sans"
             >
               Отзывы
             </a>
             <Link
               href="/contacts"
-              className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+              className="text-sm font-medium tracking-wider text-muted-foreground transition-colors hover:text-foreground font-sans"
             >
               Контакты
             </Link>
           </nav>
         </div>
-        <p className="text-xs text-muted-foreground md:text-[13px]">
-          © 2026 Крутой Сервис
+        <p className="text-xs text-muted-foreground md:text-[13px] font-sans">
+          © 2026 Крутой Сервис. Все права защищены.
         </p>
       </div>
     </footer>
