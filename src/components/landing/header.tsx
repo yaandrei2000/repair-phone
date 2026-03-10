@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Button } from "@/components/ui/button";
 
 const reviewsLink =
@@ -10,6 +11,14 @@ export function Header() {
       <div className="container mx-auto flex h-[72px] max-w-[1440px] items-center justify-between px-[18px] py-4 md:h-[88px] md:px-16 md:py-5">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-3">
+          <Image
+            src="/logo.png"
+            alt="Крутой Сервис"
+            width={180}
+            height={60}
+            className="h-12 w-auto md:h-16"
+            priority
+          />
           <span className="text-xl font-medium text-foreground md:text-2xl md:font-bold">
             Крутой Сервис
           </span>
