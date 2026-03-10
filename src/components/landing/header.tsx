@@ -10,7 +10,6 @@ export function Header() {
       <div className="container mx-auto flex h-[72px] max-w-[1440px] items-center justify-between px-[18px] py-4 md:h-[88px] md:px-16 md:py-5">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-3">
-          <div className="h-8 w-8 bg-primary" />
           <span className="font-serif text-xl font-medium text-foreground md:text-2xl md:font-bold">
             Крутой Сервис
           </span>
