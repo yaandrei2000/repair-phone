@@ -125,7 +125,7 @@ export function ServicesList() {
               <div className="h-12 w-12 flex items-center justify-center bg-primary/10 flex-shrink-0">
                 <service.icon className="h-6 w-6 text-primary" />
               </div>
-              <h3 className="font-serif text-[20px] font-medium text-foreground md:text-[22px]">
+              <h3 className="text-[20px] font-medium text-foreground md:text-[22px]">
                 {service.title}
               </h3>
             </div>

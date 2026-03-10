@@ -150,7 +150,7 @@ export function PricingTable() {
       {pricingCategories.map((category, categoryIndex) => (
         <Card key={categoryIndex} className="py-0">
           <CardHeader className="p-4 md:p-6">
-            <h2 className="font-serif text-[22px] font-medium text-foreground md:text-[28px]">
+            <h2 className="text-[22px] font-medium text-foreground md:text-[28px]">
               {category.category}
             </h2>
           </CardHeader>
@@ -171,7 +171,7 @@ export function PricingTable() {
                   </div>
                   <div className="flex items-center justify-between gap-4 md:justify-end">
                     <div className="flex flex-col items-end gap-1">
-                      <p className="font-serif text-lg font-medium text-primary md:text-xl">
+                      <p className="text-lg font-medium text-primary md:text-xl">
                         {service.price}
                       </p>
                       <Badge variant="default" className="w-fit">

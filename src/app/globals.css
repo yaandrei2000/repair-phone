@@ -48,43 +48,60 @@
 }
 
 :root {
-  --radius: 0;
-  --font-primary: "Playfair Display", serif;
-  --font-secondary: "Manrope", sans-serif;
-  --background: #0f0f0f;
-  --foreground: #faf8f5;
-  --card: #141414;
-  --card-foreground: #faf8f5;
-  --popover: #141414;
-  --popover-foreground: #faf8f5;
-  --primary: #c9a962;
-  --primary-foreground: #0a0a0a;
-  --secondary: #1a1a1a;
-  --secondary-foreground: #e8dfc9;
-  --muted: #171717;
-  --muted-foreground: #9b927e;
-  --accent: #1b1711;
-  --accent-foreground: #e8dfc9;
-  --destructive: #9f2f2f;
-  --border: #2a2419;
-  --input: #2a2419;
-  --ring: #c9a962;
-  --chart-1: #c9a962;
-  --chart-2: #6d8f4e;
-  --chart-3: #4f6f88;
-  --chart-4: #aa6a39;
-  --chart-5: #8f536d;
-  --sidebar: #0a0a0a;
-  --sidebar-foreground: #ede4d0;
-  --sidebar-primary: #c9a962;
-  --sidebar-primary-foreground: #0a0a0a;
-  --sidebar-accent: #181410;
-  --sidebar-accent-foreground: #ede4d0;
-  --sidebar-border: #2a2419;
-  --sidebar-ring: #c9a962;
+  /* Базовый радиус как в дефолтной теме shadcn (мягкие углы) */
+  --radius: 0.5rem;
+  /* Современные шрифты: Inter для всего (отлично читается на мобилке) */
+  --font-primary: var(--font-inter), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-secondary: var(--font-inter), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+
+  /* Светлая палитра по умолчанию (как на макете) */
+  --background: #f5f6fb; /* светло-серый фон страницы */
+  --foreground: #111827; /* почти черный текст */
+
+  --card: #ffffff;
+  --card-foreground: #111827;
+
+  --popover: #ffffff;
+  --popover-foreground: #111827;
+
+  /* Основной акцент – бирюзово-зелёный как кнопка на макете */
+  --primary: #14B8A6;
+  --primary-foreground: #ffffff;
+
+  --secondary: #e5ecf6; /* мягкий голубовато-серый для вторичных элементов */
+  --secondary-foreground: #111827;
+
+  --muted: #e5e7eb;
+  --muted-foreground: #6b7280;
+
+  --accent: #46371e; /* оранжево-золотистый акцент */
+  --accent-foreground: #111827;
+
+  --destructive: #ef4444;
+
+  --border: #e2e8f0;
+  --input: #e2e8f0;
+  --ring: #00c2a0;
+
+  /* Графики и админка в той же гамме */
+  --chart-1: #00c2a0;
+  --chart-2: #3b82f6;
+  --chart-3: #f59e0b;
+  --chart-4: #6366f1;
+  --chart-5: #ec4899;
+
+  --sidebar: #ffffff;
+  --sidebar-foreground: #111827;
+  --sidebar-primary: #00c2a0;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #f3f4f6;
+  --sidebar-accent-foreground: #111827;
+  --sidebar-border: #e5e7eb;
+  --sidebar-ring: #00c2a0;
 }
 
 .dark {
+  /* Оставляем возможность тёмной темы, но можно позже донастроить */
   --background: #0f0f0f;
   --foreground: #faf8f5;
   --card: #141414;
@@ -124,6 +141,8 @@
   }
   body {
     @apply bg-background font-sans text-foreground;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+    font-variant-numeric: oldstyle-nums;
   }
   h1,
   h2,
@@ -132,5 +151,7 @@
   h5,
   h6 {
     font-family: var(--font-primary);
+    font-weight: 600;
+    letter-spacing: -0.02em;
   }
 }

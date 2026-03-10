@@ -11,7 +11,7 @@ export default function PricingPage() {
       <section className="w-full bg-background">
         <div className="container mx-auto flex max-w-[1440px] flex-col gap-6 px-[18px] py-7 md:gap-8 md:px-16 md:py-14">
           <div className="flex flex-col gap-3 md:gap-4">
-            <h1 className="font-serif text-[30px] font-normal text-foreground md:text-[44px]">
+            <h1 className="text-[30px] font-normal text-foreground md:text-[44px]">
               Прайс-лист
             </h1>
             <p className="text-sm text-muted-foreground md:text-lg">

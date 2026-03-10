@@ -5,21 +5,15 @@ const reviewsLink =
 
 export function Footer() {
   return (
-    <footer className="w-full border-t border-border bg-[#0A0A0A]">
+    <footer className="w-full border-t border-border bg-background">
       <div className="container mx-auto flex max-w-[1440px] flex-col gap-4 px-[18px] py-8 md:gap-5 md:px-16 md:py-12">
         <div className="flex flex-col gap-2 md:flex-row md:items-center md:justify-between">
           <Link href="/">
-            <p className="font-serif text-base font-medium text-foreground md:text-lg">
+            <p className="text-base font-medium text-foreground md:text-lg">
               Крутой Сервис • Ремонт смартфонов
             </p>
           </Link>
           <nav className="flex flex-col gap-2 md:flex-row md:items-center md:gap-6">
-            <Link
-              href="/services"
-              className="text-sm font-medium tracking-wider text-muted-foreground transition-colors hover:text-foreground font-sans"
-            >
-              Услуги
-            </Link>
             <Link
               href="/pricing"
               className="text-sm font-medium tracking-wider text-muted-foreground transition-colors hover:text-foreground font-sans"
@@ -35,7 +29,7 @@ export function Footer() {
               Отзывы
             </a>
             <Link
-              href="/contacts"
+              href="/#contacts"
               className="text-sm font-medium tracking-wider text-muted-foreground transition-colors hover:text-foreground font-sans"
             >
               Контакты

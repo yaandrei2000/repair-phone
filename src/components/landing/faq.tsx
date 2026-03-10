@@ -27,7 +27,7 @@ export function FAQ() {
   return (
     <section className="w-full bg-background">
       <div className="container mx-auto flex max-w-[1440px] flex-col gap-2.5 px-[18px] pb-[42px] pt-7 md:gap-4.5 md:px-16 md:pb-22 md:pt-11">
-        <h2 className="font-serif text-[30px] font-normal text-foreground md:text-[44px]">
+        <h2 className="text-[30px] font-normal text-foreground md:text-[44px]">
           Частые вопросы
         </h2>
         <Accordion type="single" collapsible className="w-full">

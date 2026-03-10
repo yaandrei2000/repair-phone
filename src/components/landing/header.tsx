@@ -6,11 +6,11 @@ const reviewsLink =
 
 export function Header() {
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-border bg-[#0A0A0A]">
+    <header className="sticky top-0 z-50 w-full border-b border-border bg-background/80 backdrop-blur">
       <div className="container mx-auto flex h-[72px] max-w-[1440px] items-center justify-between px-[18px] py-4 md:h-[88px] md:px-16 md:py-5">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-3">
-          <span className="font-serif text-xl font-medium text-foreground md:text-2xl md:font-bold">
+          <span className="text-xl font-medium text-foreground md:text-2xl md:font-bold">
             Крутой Сервис
           </span>
         </Link>
@@ -18,12 +18,6 @@ export function Header() {
         {/* Navigation */}
         <nav className="hidden md:flex">
           <div className="flex items-center gap-6">
-            <Link
-              href="/services"
-              className="text-sm font-medium tracking-wider text-muted-foreground transition-colors hover:text-foreground"
-            >
-              Услуги
-            </Link>
             <Link
               href="/pricing"
               className="text-sm font-medium tracking-wider text-muted-foreground transition-colors hover:text-foreground"
@@ -39,7 +33,7 @@ export function Header() {
               Отзывы
             </a>
             <Link
-              href="/contacts"
+              href="/#contacts"
               className="text-sm font-medium tracking-wider text-muted-foreground transition-colors hover:text-foreground"
             >
               Контакты
@@ -49,22 +43,12 @@ export function Header() {
 
         {/* Actions */}
         <div className="flex items-center gap-3">
-          <Button
-            variant="outline"
-            size="default"
-            className="md:hidden"
-            asChild
+          <a
+            href="tel:+79066150006"
+            className="text-sm font-medium text-foreground transition-colors hover:text-primary md:text-base"
           >
-            <a href="tel:+79066150006">Позвонить</a>
-          </Button>
-          <Button
-            variant="outline"
-            size="default"
-            className="hidden md:flex"
-            asChild
-          >
-            <a href="tel:+79066150006">Позвонить</a>
-          </Button>
+            +7 (906) 615-00-06
+          </a>
           <Button
             variant="default"
             size="default"

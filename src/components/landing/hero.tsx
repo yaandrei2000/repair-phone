@@ -20,7 +20,7 @@ export function Hero() {
           </Badge>
 
           {/* Title */}
-          <h1 className="font-serif text-[40px] font-normal leading-tight text-foreground md:text-[64px] md:font-bold">
+          <h1 className="text-[40px] font-normal leading-tight text-foreground md:text-[64px] md:font-bold">
             Ремонтируем смартфоны всех брендов с гарантией{" "}
             <span>12 месяцев</span>
           </h1>

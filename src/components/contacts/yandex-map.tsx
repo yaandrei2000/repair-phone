@@ -13,7 +13,7 @@ export function YandexMapOrganization({
   const mapUrl = `https://yandex.ru/map-widget/v1/?from=mapframe&indoorLevel=1&mode=search&oid=${organizationId}&ol=biz&z=${zoom}`;
 
   return (
-    <div className="w-full h-[400px] md:h-[500px] border border-border">
+    <div className="w-full h-[400px] overflow-hidden rounded-xl border border-border md:h-[500px]">
       <iframe
         src={mapUrl}
         width="100%"

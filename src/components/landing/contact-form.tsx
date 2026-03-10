@@ -21,24 +21,27 @@ export function ContactForm() {
   const formatPhoneNumber = (value: string): string => {
     // Удаляем все нецифровые символы
     const numbers = value.replace(/\D/g, "");
-    
+
     // Если номер начинается с 8, заменяем на 7
     let formatted = numbers.startsWith("8") ? "7" + numbers.slice(1) : numbers;
-    
+
     // Если номер не начинается с 7, добавляем 7
     if (formatted && !formatted.startsWith("7")) {
       formatted = "7" + formatted;
     }
-    
+
     // Ограничиваем длину до 11 цифр (7 + 10 цифр)
     formatted = formatted.slice(0, 11);
-    
+
     // Форматируем в формат +7 (XXX) XXX-XX-XX
     if (formatted.length === 0) return "";
     if (formatted.length <= 1) return `+${formatted}`;
-    if (formatted.length <= 4) return `+${formatted.slice(0, 1)} (${formatted.slice(1)}`;
-    if (formatted.length <= 7) return `+${formatted.slice(0, 1)} (${formatted.slice(1, 4)}) ${formatted.slice(4)}`;
-    if (formatted.length <= 9) return `+${formatted.slice(0, 1)} (${formatted.slice(1, 4)}) ${formatted.slice(4, 7)}-${formatted.slice(7)}`;
+    if (formatted.length <= 4)
+      return `+${formatted.slice(0, 1)} (${formatted.slice(1)}`;
+    if (formatted.length <= 7)
+      return `+${formatted.slice(0, 1)} (${formatted.slice(1, 4)}) ${formatted.slice(4)}`;
+    if (formatted.length <= 9)
+      return `+${formatted.slice(0, 1)} (${formatted.slice(1, 4)}) ${formatted.slice(4, 7)}-${formatted.slice(7)}`;
     return `+${formatted.slice(0, 1)} (${formatted.slice(1, 4)}) ${formatted.slice(4, 7)}-${formatted.slice(7, 9)}-${formatted.slice(9, 11)}`;
   };
 
@@ -50,12 +53,12 @@ export function ContactForm() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     // Валидация
     if (!formData.name.trim() || !formData.problem.trim()) {
       return;
     }
-    
+
     // Валидация телефона с помощью регулярного выражения
     if (!validatePhone(formData.phone)) {
       return;
@@ -73,7 +76,7 @@ export function ContactForm() {
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { id, value } = e.target;
-    
+
     // Для поля телефона применяем форматирование
     if (id === "phone") {
       const formatted = formatPhoneNumber(value);
@@ -84,20 +87,23 @@ export function ContactForm() {
   };
 
   return (
-    <section id="contact-form" className="w-full bg-[#12100D] scroll-mt-20 md:scroll-mt-24">
+    <section
+      id="contact-form"
+      className="w-full bg-background scroll-mt-20 md:scroll-mt-24"
+    >
       <div className="container mx-auto flex max-w-[1440px] flex-col gap-3 px-[18px] pb-[34px] pt-[30px] md:flex-row md:gap-7 md:px-16 md:pb-20 md:pt-14">
         {/* Left side */}
         <div className="flex flex-1 flex-col gap-3 md:gap-3.5">
-          <h2 className="font-serif text-[30px] font-normal text-foreground md:text-[44px]">
+          <h2 className="text-[30px] font-normal text-foreground md:text-[44px]">
             <span className="md:hidden">Оставьте заявку</span>
             <span className="hidden md:inline">Оставьте заявку на ремонт</span>
           </h2>
           <p className="text-[13px] text-muted-foreground md:text-lg">
             <span className="md:hidden">
-              Перезвоним за 3 минуты и согласуем удобное время ремонта.
+              Перезвоним за 5 минут и согласуем удобное время ремонта.
             </span>
             <span className="hidden md:inline">
-              Перезвоним за 3 минуты, уточним модель и поломку, сразу
+              Перезвоним за 5 минут, уточним модель и поломку, сразу
               сориентируем по сроку и цене.
             </span>
           </p>
@@ -111,7 +117,7 @@ export function ContactForm() {
         {/* Form Card */}
         <Card className="w-full py-0 md:w-[520px]">
           <CardHeader className="flex flex-col gap-1 p-4 pb-0 md:gap-1.5 md:p-5 md:pb-0">
-            <h3 className="font-serif text-2xl font-medium text-foreground md:font-sans md:font-semibold">
+            <h3 className="text-2xl font-medium text-foreground md:font-semibold">
               Заявка на ремонт
             </h3>
             <p className="hidden text-sm text-muted-foreground md:block">
@@ -119,7 +125,10 @@ export function ContactForm() {
             </p>
           </CardHeader>
           <CardContent className="flex flex-col gap-[10px] px-4 pb-4 pt-0 md:gap-3 md:px-5 md:pb-5 md:pt-0">
-            <form onSubmit={handleSubmit} className="flex flex-col gap-[10px] md:gap-3">
+            <form
+              onSubmit={handleSubmit}
+              className="flex flex-col gap-[10px] md:gap-3"
+            >
               <div className="flex flex-col gap-1.5">
                 <Label htmlFor="name">Ваше имя</Label>
                 <Input

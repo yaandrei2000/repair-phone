@@ -44,7 +44,7 @@ export function Trust() {
   return (
     <section className="w-full bg-background">
       <div className="container mx-auto flex max-w-[1440px] flex-col gap-3 px-[18px] pb-[34px] pt-[30px] md:gap-6 md:px-16 md:pb-20 md:pt-14">
-        <h2 className="font-serif text-[30px] font-normal text-foreground md:text-[44px]">
+        <h2 className="text-[30px] font-normal text-foreground md:text-[44px]">
           <span className="md:hidden">Почему выбирают нас</span>
           <span className="hidden md:inline">Почему выбирают нас</span>
         </h2>
@@ -69,7 +69,7 @@ export function Trust() {
         </div>
 
         {/* Steps - hidden on mobile */}
-        <div className="hidden grid-cols-1 gap-4 md:grid md:grid-cols-3">
+        {/* <div className="hidden grid-cols-1 gap-4 md:grid md:grid-cols-3">
           {steps.map((step, index) => (
             <Card key={index}>
               <CardHeader className="flex flex-col gap-1.5">
@@ -87,7 +87,7 @@ export function Trust() {
               </CardContent>
             </Card>
           ))}
-        </div>
+        </div> */}
       </div>
     </section>
   );
