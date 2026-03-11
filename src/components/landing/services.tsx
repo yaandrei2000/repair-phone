@@ -65,8 +65,7 @@ export function Services() {
                 <div className="absolute inset-5 rounded-full bg-primary shadow-[0_24px_60px_rgba(15,23,42,0.22)]" />
                 <motion.div
                   initial={{ opacity: 0, y: 20, scale: 0.98 }}
-                  whileInView={{ opacity: 1, y: 0, scale: 1 }}
-                  viewport={{ once: true, margin: "-20% 0px" }}
+                  animate={{ opacity: 1, y: 0, scale: 1 }}
                   transition={{ duration: 0.45, delay: index * 0.08, ease: "easeOut" }}
                   className="relative h-full w-full"
                 >
@@ -82,8 +81,7 @@ export function Services() {
               {/* Текст под фотографией с плавным появлением */}
               <motion.div
                 initial={{ opacity: 0, y: 10 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-20% 0px" }}
+                animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.4, delay: 0.05 + index * 0.08, ease: "easeOut" }}
                 className="mt-4 flex flex-col gap-1.5 md:mt-5"
               >
@@ -101,8 +99,7 @@ export function Services() {
               {/* Бейджик со временем выполнения */}
               <motion.div
                 initial={{ opacity: 0, y: 8 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-20% 0px" }}
+                animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.35, delay: 0.12 + index * 0.08, ease: "easeOut" }}
               >
                 <Badge
