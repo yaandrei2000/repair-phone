@@ -1,9 +1,41 @@
+"use client";
+
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { motion, AnimatePresence } from "motion/react";
+
+const repairCards = [
+  {
+    device: "IPhone 14 Pro",
+    service: "Замена аккумулятора • 45 мин",
+    image: "/iphone1.png",
+  },
+  {
+    device: "Samsung Galaxy S23",
+    service: "Замена дисплея • 60 мин",
+    image: "/iphone.png",
+  },
+  {
+    device: "Xiaomi 13 Pro",
+    service: "Восстановление после воды • 2 часа",
+    image: "/iphone1.png",
+  },
+];
 
 export function HeroHighlight() {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % repairCards.length);
+    }, 4500); // Смена каждые 4 секунды
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <section className="w-full bg-background">
       <div className="container mx-auto flex max-w-[1440px] flex-col gap-10 px-[18px] pb-10 pt-9 md:flex-row md:items-center md:gap-14 md:px-16 md:pb-16 md:pt-14">
@@ -58,27 +90,47 @@ export function HeroHighlight() {
         <div className="relative flex flex-1 items-center justify-center">
           {/* Big accent circle */}
           <div className="relative h-[260px] w-[260px] rounded-full bg-primary shadow-[0_40px_80px_rgba(0,0,0,0.18)] md:h-[360px] md:w-[360px]">
-            {/* Phone image */}
-            <div className="absolute inset-[-10%]">
-              <Image
-                src="/iphone1.png"
-                alt="Ремонт смартфонов"
-                fill
-                className="object-contain"
-                priority
-              />
-            </div>
+            {/* Phone image with animation */}
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={currentIndex}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                transition={{ duration: 0.4, ease: "easeInOut" }}
+                className="absolute inset-[-10%]"
+              >
+                <Image
+                  src={repairCards[currentIndex].image}
+                  alt={repairCards[currentIndex].device}
+                  fill
+                  className="object-contain"
+                  priority={currentIndex === 0}
+                />
+              </motion.div>
+            </AnimatePresence>
 
-            {/* Floating card */}
-            <div className="absolute -bottom-6 right-0 flex items-center gap-2 rounded-xl bg-card px-3 py-2 text-xs shadow-lg md:-bottom-10 md:right-4 md:text-sm">
-              <span className="h-2 w-2 rounded-full bg-primary" />
-              <div className="flex flex-col">
-                <span className="font-medium">IPhone 14 Pro</span>
-                <span className="text-muted-foreground">
-                  Замена аккумулятора • 45 мин
-                </span>
-              </div>
-            </div>
+            {/* Floating card with animation */}
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={currentIndex}
+                initial={{ opacity: 0, x: 50, scale: 0.8 }}
+                animate={{ opacity: 1, x: 0, scale: 1 }}
+                exit={{ opacity: 0, x: -50, scale: 0.8 }}
+                transition={{ duration: 0.5, ease: "easeInOut" }}
+                className="absolute -bottom-6 right-0 flex items-center gap-2 rounded-xl bg-card px-3 py-2 text-xs shadow-lg md:-bottom-10 md:right-4 md:text-sm"
+              >
+                <span className="h-2 w-2 rounded-full bg-primary" />
+                <div className="flex flex-col">
+                  <span className="font-medium">
+                    {repairCards[currentIndex].device}
+                  </span>
+                  <span className="text-muted-foreground">
+                    {repairCards[currentIndex].service}
+                  </span>
+                </div>
+              </motion.div>
+            </AnimatePresence>
           </div>
         </div>
       </div>

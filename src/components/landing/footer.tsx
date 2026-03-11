@@ -9,14 +9,17 @@ export function Footer() {
     <footer className="w-full border-t border-border bg-background">
       <div className="container mx-auto flex max-w-[1440px] flex-col gap-4 px-[18px] py-8 md:gap-5 md:px-16 md:py-12">
         <div className="flex flex-col gap-2 md:flex-row md:items-center md:justify-between">
-          <Link href="/" className="flex items-center">
+          <Link href="/" className="flex items-center gap-3">
             <Image
               src="/logo.png"
               alt="Крутой Сервис"
-              width={120}
-              height={40}
-              className="h-8 w-auto md:h-10"
+              width={180}
+              height={60}
+              className="h-12 w-auto md:h-16"
             />
+            <span className="hidden text-xl font-medium text-foreground md:block md:text-2xl md:font-bold">
+              Крутой Сервис
+            </span>
           </Link>
           <nav className="flex flex-col gap-2 md:flex-row md:items-center md:gap-6">
             <Link
