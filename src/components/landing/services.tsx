@@ -60,22 +60,24 @@ export function Services() {
                 aria-hidden="true"
               />
 
-              {/* Круг-фон позади телефона с лёгкой анимацией появления */}
-              <motion.div
-                initial={{ opacity: 0, y: 20, scale: 0.95 }}
-                whileInView={{ opacity: 1, y: 0, scale: 1 }}
-                viewport={{ once: true, margin: "-20% 0px" }}
-                transition={{ duration: 0.45, delay: index * 0.08, ease: "easeOut" }}
-                className="relative h-[200px] w-[200px] md:h-[230px] md:w-[230px]"
-              >
+              {/* Круг-фон позади телефона (статичный) + анимация только изображения */}
+              <div className="relative h-[200px] w-[200px] md:h-[230px] md:w-[230px]">
                 <div className="absolute inset-5 rounded-full bg-primary shadow-[0_24px_60px_rgba(15,23,42,0.22)]" />
-                <Image
-                  src={service.image}
-                  alt={service.title}
-                  fill
-                  className="relative object-contain drop-shadow-[0_18px_48px_rgba(0,0,0,0.45)]"
-                />
-              </motion.div>
+                <motion.div
+                  initial={{ opacity: 0, y: 20, scale: 0.98 }}
+                  whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                  viewport={{ once: true, margin: "-20% 0px" }}
+                  transition={{ duration: 0.45, delay: index * 0.08, ease: "easeOut" }}
+                  className="relative h-full w-full"
+                >
+                  <Image
+                    src={service.image}
+                    alt={service.title}
+                    fill
+                    className="object-contain drop-shadow-[0_18px_48px_rgba(0,0,0,0.45)]"
+                  />
+                </motion.div>
+              </div>
 
               {/* Текст под фотографией с плавным появлением */}
               <motion.div
