@@ -81,7 +81,9 @@ export function HeroHighlight() {
           {/* Address and rating - desktop only */}
           <div className="mt-4 hidden flex-col gap-3 md:flex">
             <div className="flex flex-col gap-1 text-xs text-muted-foreground md:text-sm">
-              <p className="font-medium text-foreground">ул. Тракторная, д. 46/1</p>
+              <p className="font-medium text-foreground">
+                ул. Тракторная, д. 46/1
+              </p>
               <p>Вход со стороны пешеходного перехода, -1 этаж</p>
             </div>
             <div className="flex flex-wrap gap-4 text-xs text-muted-foreground md:text-sm">
@@ -143,7 +145,9 @@ export function HeroHighlight() {
           {/* Address and rating - mobile only */}
           <div className="mt-10 flex w-full flex-col gap-3 md:hidden">
             <div className="flex flex-col gap-1 text-xs text-muted-foreground">
-              <p className="font-medium text-foreground">ул. Тракторная, д. 46/1</p>
+              <p className="font-medium text-foreground">
+                ул. Тракторная, д. 46/1
+              </p>
               <p>Вход со стороны пешеходного перехода, -1 этаж</p>
             </div>
             <div className="flex flex-wrap gap-4 text-xs text-muted-foreground">

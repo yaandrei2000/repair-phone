@@ -1,9 +1,8 @@
-import Image from "next/image";
-import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
-import { Card, CardContent, CardHeader } from "@/components/ui/card";
-import { Plus } from "lucide-react";
+"use client";
 
+import Image from "next/image";
+import { Badge } from "@/components/ui/badge";
+import { motion } from "motion/react";
 const services = [
   {
     title: "Замена дисплея",
@@ -11,7 +10,7 @@ const services = [
       "Оригинальные и качественные OLED/LCD модули для iPhone, Samsung, Xiaomi.",
     price: "от 3 490 ₽",
     duration: "40-60 мин",
-    image: "/card3HeadB.jpg",
+    image: "/6381.png",
   },
   {
     title: "Замена аккумулятора",
@@ -19,15 +18,15 @@ const services = [
       "Быстро восстановим автономность устройства и проверим контроллер питания.",
     price: "от 2 190 ₽",
     duration: "30-45 мин",
-    image: "/card2HeadB.jpg",
+    image: "/iphone1.png",
   },
   {
-    title: "Восстановление после воды",
+    title: "Замена разъёма зарядки",
     description:
-      "Ультразвуковая чистка, диагностика плат и замена поврежденных компонентов.",
-    price: "от 1 990 ₽",
-    duration: "в день обращения",
-    image: "/card1HeadB.jpg",
+      "Устраним проблему с зарядкой, заменим порт и проверим систему питания устройства.",
+    price: "от 1 790 ₽",
+    duration: "30-60 мин",
+    image: "/phone-charging.png",
   },
 ];
 
@@ -49,33 +48,70 @@ export function Services() {
             </span>
           </p>
         </div>
-
-        <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
           {services.map((service, index) => (
-            <Card
+            <div
               key={index}
-              className="overflow-hidden gap-0 p-0 shadow-lg shadow-black/5"
+              className="relative flex flex-col items-center text-center"
             >
-              <div className="relative h-[150px] w-full md:h-[180px]">
+              {/* Светлое свечение под «плашкой» */}
+              <div
+                className="pointer-events-none absolute inset-x-6 -top-2 h-24 rounded-full bg-primary/5 blur-2xl md:inset-x-4"
+                aria-hidden="true"
+              />
+
+              {/* Круг-фон позади телефона с лёгкой анимацией появления */}
+              <motion.div
+                initial={{ opacity: 0, y: 20, scale: 0.95 }}
+                whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                viewport={{ once: true, margin: "-20% 0px" }}
+                transition={{ duration: 0.45, delay: index * 0.08, ease: "easeOut" }}
+                className="relative h-[200px] w-[200px] md:h-[230px] md:w-[230px]"
+              >
+                <div className="absolute inset-5 rounded-full bg-primary shadow-[0_24px_60px_rgba(15,23,42,0.22)]" />
                 <Image
                   src={service.image}
                   alt={service.title}
                   fill
-                  className="object-cover"
+                  className="relative object-contain drop-shadow-[0_18px_48px_rgba(0,0,0,0.45)]"
                 />
-              </div>
-              <div className="flex flex-col gap-1.5 p-4 md:gap-2 md:p-5">
-                <h3 className="text-[22px] font-medium text-foreground">
+              </motion.div>
+
+              {/* Текст под фотографией с плавным появлением */}
+              <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-20% 0px" }}
+                transition={{ duration: 0.4, delay: 0.05 + index * 0.08, ease: "easeOut" }}
+                className="mt-4 flex flex-col gap-1.5 md:mt-5"
+              >
+                <h3 className="text-[20px] font-medium text-foreground md:text-[22px]">
                   {service.title}
                 </h3>
-                <p className="hidden text-sm text-muted-foreground md:block">
+                <p className="hidden text-xs text-muted-foreground md:block md:text-sm">
                   {service.description}
                 </p>
-                <p className="text-lg font-medium text-primary md:text-xl md:font-bold">
+                <p className="text-base font-semibold text-foreground md:text-lg md:font-bold">
                   {service.price}
                 </p>
-              </div>
-            </Card>
+              </motion.div>
+
+              {/* Бейджик со временем выполнения */}
+              <motion.div
+                initial={{ opacity: 0, y: 8 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-20% 0px" }}
+                transition={{ duration: 0.35, delay: 0.12 + index * 0.08, ease: "easeOut" }}
+              >
+                <Badge
+                  variant="secondary"
+                  className="mt-2 rounded-full px-3 py-1 text-[11px] font-medium text-foreground md:mt-3 md:text-xs"
+                >
+                  <span className="mr-1.5 inline-block h-1.5 w-1.5 rounded-full bg-primary" />
+                  <span>{service.duration}</span>
+                </Badge>
+              </motion.div>
+            </div>
           ))}
         </div>
       </div>
