@@ -1,8 +1,6 @@
-"use client";
-
 import Image from "next/image";
 import { Badge } from "@/components/ui/badge";
-import { motion } from "motion/react";
+
 const services = [
   {
     title: "Замена дисплея",
@@ -60,31 +58,19 @@ export function Services() {
                 aria-hidden="true"
               />
 
-              {/* Круг-фон позади телефона (статичный) + анимация только изображения */}
+              {/* Круг-фон позади телефона */}
               <div className="relative h-[200px] w-[200px] md:h-[230px] md:w-[230px]">
                 <div className="absolute inset-5 rounded-full bg-primary shadow-[0_24px_60px_rgba(15,23,42,0.22)]" />
-                <motion.div
-                  initial={{ opacity: 0, y: 20, scale: 0.98 }}
-                  animate={{ opacity: 1, y: 0, scale: 1 }}
-                  transition={{ duration: 0.45, delay: index * 0.08, ease: "easeOut" }}
-                  className="relative h-full w-full"
-                >
-                  <Image
-                    src={service.image}
-                    alt={service.title}
-                    fill
-                    className="object-contain drop-shadow-[0_18px_48px_rgba(0,0,0,0.45)]"
-                  />
-                </motion.div>
+                <Image
+                  src={service.image}
+                  alt={service.title}
+                  fill
+                  className="relative object-contain drop-shadow-[0_18px_48px_rgba(0,0,0,0.45)]"
+                />
               </div>
 
-              {/* Текст под фотографией с плавным появлением */}
-              <motion.div
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.4, delay: 0.05 + index * 0.08, ease: "easeOut" }}
-                className="mt-4 flex flex-col gap-1.5 md:mt-5"
-              >
+              {/* Текст под фотографией */}
+              <div className="mt-4 flex flex-col gap-1.5 md:mt-5">
                 <h3 className="text-[20px] font-medium text-foreground md:text-[22px]">
                   {service.title}
                 </h3>
@@ -94,22 +80,16 @@ export function Services() {
                 <p className="text-base font-semibold text-foreground md:text-lg md:font-bold">
                   {service.price}
                 </p>
-              </motion.div>
+              </div>
 
               {/* Бейджик со временем выполнения */}
-              <motion.div
-                initial={{ opacity: 0, y: 8 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.35, delay: 0.12 + index * 0.08, ease: "easeOut" }}
+              <Badge
+                variant="secondary"
+                className="mt-2 rounded-full px-3 py-1 text-[11px] font-medium text-foreground md:mt-3 md:text-xs"
               >
-                <Badge
-                  variant="secondary"
-                  className="mt-2 rounded-full px-3 py-1 text-[11px] font-medium text-foreground md:mt-3 md:text-xs"
-                >
-                  <span className="mr-1.5 inline-block h-1.5 w-1.5 rounded-full bg-primary" />
-                  <span>{service.duration}</span>
-                </Badge>
-              </motion.div>
+                <span className="mr-1.5 inline-block h-1.5 w-1.5 rounded-full bg-primary" />
+                <span>{service.duration}</span>
+              </Badge>
             </div>
           ))}
         </div>
