@@ -14,9 +14,9 @@ export function Header() {
           <Image
             src="/logo.png"
             alt="Крутой Сервис"
-            width={180}
-            height={60}
-            className="h-12 w-auto md:h-16"
+            width={120}
+            height={40}
+            className="h-8 w-auto md:h-10"
             priority
           />
           <span className="text-xl font-medium text-foreground md:text-2xl md:font-bold">
