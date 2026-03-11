@@ -45,7 +45,7 @@ export function HeroHighlight() {
             variant="secondary"
             className="rounded-full px-3 py-1 text-xs md:text-sm"
           >
-            Владимир • Крутой сервис по ремонту смартфонов
+            г. Владимир • Крутой сервис по ремонту смартфонов
           </Badge>
 
           <h1 className="text-[40px] font-semibold leading-tight text-foreground md:text-[64px]">
@@ -78,16 +78,23 @@ export function HeroHighlight() {
             </p>
           </div>
 
-          <div className="mt-4 flex flex-wrap gap-4 text-xs text-muted-foreground md:text-sm">
-            <div className="flex items-center gap-2">
-              <span className="h-2 w-2 rounded-full bg-primary" />
-              <span>4.9/5 по отзывам клиентов</span>
+          {/* Address and rating - desktop only */}
+          <div className="mt-4 hidden flex-col gap-3 md:flex">
+            <div className="flex flex-col gap-1 text-xs text-muted-foreground md:text-sm">
+              <p className="font-medium text-foreground">ул. Тракторная, д. 46/1</p>
+              <p>Вход со стороны пешеходного перехода, -1 этаж</p>
+            </div>
+            <div className="flex flex-wrap gap-4 text-xs text-muted-foreground md:text-sm">
+              <div className="flex items-center gap-2">
+                <span className="h-2 w-2 rounded-full bg-primary" />
+                <span>4.9/5 по отзывам клиентов</span>
+              </div>
             </div>
           </div>
         </div>
 
         {/* Right visual */}
-        <div className="relative flex flex-1 items-center justify-center">
+        <div className="relative flex flex-1 flex-col items-center">
           {/* Big accent circle */}
           <div className="relative h-[260px] w-[260px] rounded-full bg-primary shadow-[0_40px_80px_rgba(0,0,0,0.18)] md:h-[360px] md:w-[360px]">
             {/* Phone image with animation */}
@@ -131,6 +138,20 @@ export function HeroHighlight() {
                 </div>
               </motion.div>
             </AnimatePresence>
+          </div>
+
+          {/* Address and rating - mobile only */}
+          <div className="mt-10 flex w-full flex-col gap-3 md:hidden">
+            <div className="flex flex-col gap-1 text-xs text-muted-foreground">
+              <p className="font-medium text-foreground">ул. Тракторная, д. 46/1</p>
+              <p>Вход со стороны пешеходного перехода, -1 этаж</p>
+            </div>
+            <div className="flex flex-wrap gap-4 text-xs text-muted-foreground">
+              <div className="flex items-center gap-2">
+                <span className="h-2 w-2 rounded-full bg-primary" />
+                <span>4.9/5 по отзывам клиентов</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
