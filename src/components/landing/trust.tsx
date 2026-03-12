@@ -31,7 +31,7 @@ export function Trust() {
             Почему выбирают нас
           </h2>
 
-          <p className="max-w-[620px] text-[13px] text-muted-foreground md:text-base">
+          <p className="max-w-[620px] text-[14px] leading-relaxed text-muted-foreground md:text-base">
             Мы сделали ремонт смартфона максимально понятным и предсказуемым:
             без давления, с фокусом на результат и ощущение, что о вас правда
             позаботились.
@@ -43,7 +43,7 @@ export function Trust() {
           <div className="flex flex-col gap-6 md:flex-row md:items-start md:gap-10">
             {/* Левая часть: крупные цифры и текст без подложки */}
             <div className="flex-1 space-y-5 md:space-y-6">
-              <div className="flex flex-wrap items-center gap-3 text-xs text-muted-foreground md:text-sm">
+              <div className="flex flex-wrap items-center gap-3 text-sm text-muted-foreground md:text-sm">
                 <span className="inline-flex items-center gap-1.5">
                   <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
                   <span>2 500+ ремонтов в месяц</span>
@@ -58,7 +58,7 @@ export function Trust() {
                 </span>
               </div>
 
-              <div className="relative mt-2 text-[12px] text-muted-foreground md:text-sm">
+              <div className="relative mt-2 text-[13px] leading-relaxed text-muted-foreground md:text-sm">
                 <p>
                   Для нас доверие важнее разового чека. Поэтому если после
                   ремонта что-то пойдёт не так — вы знаете, куда и к кому
@@ -80,16 +80,16 @@ export function Trust() {
                     whileHover={{ scale: 1.02, x: 2 }}
                     className="group text-left"
                   >
-                    <p className="text-[11px] font-medium uppercase tracking-[0.14em] text-primary/70 md:text-xs">
+                    <p className="text-[12px] font-medium uppercase tracking-[0.14em] text-primary/70 md:text-xs">
                       Шаг {index + 1}
                     </p>
                     <div className="mt-1 flex items-start gap-2">
                       <span className="mt-1 h-1.5 w-1.5 flex-none rounded-full bg-primary group-hover:bg-sky-400" />
                       <div>
-                        <h3 className="text-[14px] font-medium text-foreground md:text-[15px]">
+                        <h3 className="text-[15px] font-medium text-foreground md:text-[15px]">
                           {reason.title}
                         </h3>
-                        <p className="mt-1 text-[11px] text-muted-foreground md:text-sm">
+                        <p className="mt-1 text-[13px] leading-relaxed text-muted-foreground md:text-sm">
                           {reason.description}
                         </p>
                       </div>
