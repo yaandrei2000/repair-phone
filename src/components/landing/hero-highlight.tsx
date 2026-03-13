@@ -9,19 +9,19 @@ import { motion, AnimatePresence } from "motion/react";
 
 const repairCards = [
   {
+    device: "IPhone 13",
+    service: "Замена задней крышки • от 1 часа",
+    image: "/iphone14.png",
+  },
+  {
     device: "IPhone 14 Pro",
     service: "Замена аккумулятора • 45 мин",
-    image: "/iphone1.png",
+    image: "/iPhone14Pro.png",
   },
   {
-    device: "Samsung Galaxy S23",
+    device: "Samsung Galaxy S24 Ultra",
     service: "Замена дисплея • 60 мин",
-    image: "/iphone.png",
-  },
-  {
-    device: "Xiaomi 13 Pro",
-    service: "Восстановление после воды • 2 часа",
-    image: "/iphone1.png",
+    image: "/SamsungGalaxyS24Ultra.png",
   },
 ];
 
@@ -45,7 +45,7 @@ export function HeroHighlight() {
             variant="secondary"
             className="rounded-full px-3 py-1 text-xs md:text-sm"
           >
-            г. Владимир • Крутой сервис по ремонту смартфонов
+            г. Владимир • Сервис по ремонту смартфонов
           </Badge>
 
           <h1 className="text-[40px] font-semibold leading-tight text-foreground md:text-[64px]">
