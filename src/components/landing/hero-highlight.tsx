@@ -31,7 +31,7 @@ export function HeroHighlight() {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % repairCards.length);
-    }, 4500); // Смена каждые 4 секунды
+    }, 6000); // Смена каждые 6 секунд
 
     return () => clearInterval(interval);
   }, []);
