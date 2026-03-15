@@ -111,7 +111,7 @@ export function HeroHighlight() {
               >
                 <Image
                   src={repairCards[currentIndex].image}
-                  alt={repairCards[currentIndex].device}
+                  alt={`Ремонт ${repairCards[currentIndex].device} - ${repairCards[currentIndex].service} в сервисе Крутой Сервис, Владимир`}
                   fill
                   className="object-contain"
                   priority={currentIndex === 0}

@@ -18,7 +18,7 @@ const contactInfo = [
   {
     icon: Clock,
     label: "Время работы:",
-    content: "ежедневно с 10:00 до 19:00",
+    content: ["Пн-Пт: 10:00-19:00", "Сб-Вс: 12:00-16:00"],
   },
 ];
 
@@ -45,9 +45,22 @@ export function ContactsSection() {
                       {info.label}
                     </span>
                   </div>
-                  <p className="text-base font-medium text-foreground font-sans md:text-lg">
-                    {info.content}
-                  </p>
+                  {Array.isArray(info.content) ? (
+                    <div className="flex flex-col gap-0.5">
+                      {info.content.map((line, lineIndex) => (
+                        <p
+                          key={lineIndex}
+                          className="text-base font-medium text-foreground font-sans md:text-lg"
+                        >
+                          {line}
+                        </p>
+                      ))}
+                    </div>
+                  ) : (
+                    <p className="text-base font-medium text-foreground font-sans md:text-lg">
+                      {info.content}
+                    </p>
+                  )}
                   {info.description && (
                     <p className="text-sm text-muted-foreground font-sans md:text-base">
                       {info.description}

@@ -63,7 +63,7 @@ export function Services() {
                 <div className="absolute inset-5 rounded-full bg-primary shadow-[0_24px_60px_rgba(15,23,42,0.22)]" />
                 <Image
                   src={service.image}
-                  alt={service.title}
+                  alt={`${service.title} - ${service.description} в сервисе Крутой Сервис, Владимир`}
                   fill
                   className="relative object-contain drop-shadow-[0_18px_48px_rgba(0,0,0,0.45)]"
                 />

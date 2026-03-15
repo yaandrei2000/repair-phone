@@ -12,7 +12,7 @@ const contactInfo = [
     icon: Phone,
     title: "Телефон",
     content: "+7 (906) 615-00-06",
-    description: "Ежедневно с 10:00 до 19:00",
+    description: "Пн-Пт: 10:00-19:00, Сб-Вс: 12:00-16:00",
   },
   {
     icon: Mail,
@@ -23,8 +23,8 @@ const contactInfo = [
   {
     icon: Clock,
     title: "Режим работы",
-    content: "Пн-Вс: 10:00 - 19:00",
-    description: "Без выходных",
+    content: "Пн-Пт: 10:00-19:00, Сб-Вс: 12:00-16:00",
+    description: "Работаем в будни и выходные",
   },
 ];
 

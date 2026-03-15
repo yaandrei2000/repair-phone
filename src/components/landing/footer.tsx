@@ -12,7 +12,7 @@ export function Footer() {
           <Link href="/" className="flex items-center gap-3">
             <Image
               src="/logo.png"
-              alt="Крутой Сервис"
+              alt="Крутой Сервис - Сервисный центр по ремонту смартфонов во Владимире"
               width={120}
               height={40}
               className="h-8 w-auto md:h-10"

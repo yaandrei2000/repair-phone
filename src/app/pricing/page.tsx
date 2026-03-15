@@ -1,8 +1,31 @@
+import type { Metadata } from "next";
 import Link from "next/link"
 import { Header } from "@/components/landing/header"
 import { Footer } from "@/components/landing/footer"
 import { PricingTable } from "@/components/pricing/pricing-table"
 import { Button } from "@/components/ui/button"
+
+export const metadata: Metadata = {
+  title: "Прайс-лист - Цены на ремонт смартфонов во Владимире",
+  description:
+    "Прозрачные цены на ремонт смартфонов во Владимире. Замена экрана от 3490₽, аккумулятора от 2190₽, разъема зарядки от 1790₽. Бесплатная диагностика. Гарантия 12 месяцев.",
+  keywords: [
+    "прайс ремонт смартфонов",
+    "цены на ремонт телефонов Владимир",
+    "стоимость замены экрана iPhone",
+    "цена замены аккумулятора",
+    "прайс-лист сервисный центр",
+  ],
+  openGraph: {
+    title: "Прайс-лист - Цены на ремонт смартфонов во Владимире",
+    description:
+      "Прозрачные цены на ремонт смартфонов. Замена экрана от 3490₽, аккумулятора от 2190₽. Бесплатная диагностика.",
+    url: "/pricing",
+  },
+  alternates: {
+    canonical: "/pricing",
+  },
+};
 
 export default function PricingPage() {
   return (

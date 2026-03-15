@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
+import { Phone } from "lucide-react";
 
 const reviewsLink =
   "https://yandex.ru/maps/org/krutoy_servis/124779220273/reviews/?from=mapframe&indoorLevel=1&ll=40.384258%2C56.148629&z=17";
@@ -13,7 +14,7 @@ export function Header() {
         <Link href="/" className="flex items-center gap-3">
           <Image
             src="/logo.png"
-            alt="Крутой Сервис"
+            alt="Крутой Сервис - Логотип сервисного центра по ремонту смартфонов во Владимире"
             width={120}
             height={40}
             className="h-8 w-auto md:h-10"
@@ -54,9 +55,13 @@ export function Header() {
         <div className="flex items-center gap-3">
           <a
             href="tel:+79066150006"
-            className="text-sm font-medium text-foreground transition-colors hover:text-primary md:text-base"
+            className="group flex items-center gap-2 text-sm font-semibold text-foreground transition-colors hover:text-primary md:text-base"
           >
-            +7 (906) 615-00-06
+            <div className="flex h-8 w-8 items-center justify-center rounded-md bg-primary text-primary-foreground transition-all group-hover:scale-105 group-hover:shadow-md md:h-9 md:w-9">
+              <Phone className="h-4 w-4 md:h-5 md:w-5" />
+            </div>
+            <span className="hidden sm:inline">+7 (906) 615-00-06</span>
+            <span className="sm:hidden">Позвонить</span>
           </a>
           <Button
             variant="default"
