@@ -2,6 +2,7 @@ import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Plus } from "lucide-react";
+import Link from "next/link";
 
 const orders = [
   {
@@ -81,10 +82,17 @@ export function LeadsAndOrders() {
             <Plus className="h-4 w-4" />
             Экспорт CSV
           </Button>
-          <Button variant="default" size="default" className="w-full md:w-auto">
-            <Plus className="h-4 w-4" />
-            Открыть все заказы
-          </Button>
+          <div className="flex flex-col gap-2 md:flex-row">
+            <Link href="/admin/orders/new">
+              <Button variant="default" size="default" className="w-full md:w-auto">
+                <Plus className="h-4 w-4 mr-2" />
+                Создать заказ
+              </Button>
+            </Link>
+            <Button variant="outline" size="default" className="w-full md:w-auto">
+              Открыть все заказы
+            </Button>
+          </div>
         </div>
       </CardContent>
     </Card>

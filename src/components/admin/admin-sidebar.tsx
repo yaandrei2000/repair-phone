@@ -1,5 +1,7 @@
 "use client"
 
+import { usePathname } from "next/navigation"
+import Link from "next/link"
 import {
   Sidebar,
   SidebarContent,
@@ -27,31 +29,33 @@ const menuItems = [
   {
     title: "Панель",
     icon: LayoutDashboard,
-    active: true,
+    href: "/admin",
   },
   {
     title: "Клиенты",
     icon: Users,
-    active: false,
+    href: "/admin/clients",
   },
   {
     title: "Заказы",
     icon: ClipboardList,
-    active: false,
+    href: "/admin/orders",
   },
   {
     title: "Мастера",
     icon: Wrench,
-    active: false,
+    href: "/admin",
   },
   {
     title: "Финансы",
     icon: Wallet,
-    active: false,
+    href: "/admin",
   },
 ]
 
 export function AdminSidebar() {
+  const pathname = usePathname()
+  
   return (
     <Sidebar>
       <SidebarHeader>
@@ -77,21 +81,30 @@ export function AdminSidebar() {
           <SidebarGroupLabel>Навигация</SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu>
-              {menuItems.map((item) => (
-                <SidebarMenuItem key={item.title}>
-                  <SidebarMenuButton
-                    isActive={item.active}
-                    tooltip={item.title}
-                    className="justify-between"
-                  >
-                    <div className="flex items-center gap-2">
-                      <item.icon className="h-4 w-4" />
-                      <span>{item.title}</span>
-                    </div>
-                    <ChevronRight className="h-4 w-4" />
-                  </SidebarMenuButton>
-                </SidebarMenuItem>
-              ))}
+              {menuItems.map((item) => {
+                const isActive = 
+                  pathname === item.href || 
+                  (item.href !== "/admin" && pathname?.startsWith(item.href)) ||
+                  (item.href === "/admin" && pathname === "/admin")
+                return (
+                  <SidebarMenuItem key={item.title}>
+                    <SidebarMenuButton
+                      asChild
+                      isActive={isActive}
+                      tooltip={item.title}
+                      className="justify-between"
+                    >
+                      <Link href={item.href || "/admin"}>
+                        <div className="flex items-center gap-2">
+                          <item.icon className="h-4 w-4" />
+                          <span>{item.title}</span>
+                        </div>
+                        <ChevronRight className="h-4 w-4" />
+                      </Link>
+                    </SidebarMenuButton>
+                  </SidebarMenuItem>
+                )
+              })}
             </SidebarMenu>
           </SidebarGroupContent>
         </SidebarGroup>
