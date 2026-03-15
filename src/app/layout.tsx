@@ -14,7 +14,7 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   metadataBase: new URL(
-    process.env.NEXT_PUBLIC_SITE_URL || "https://krutoiservis.ru/",
+    process.env.NEXT_PUBLIC_SITE_URL || "https://krutoiservis.ru",
   ),
   title: {
     default: "Крутой Сервис - Ремонт смартфонов во Владимире",

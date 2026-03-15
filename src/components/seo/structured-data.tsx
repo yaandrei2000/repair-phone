@@ -1,6 +1,5 @@
 export function StructuredData() {
-  const siteUrl =
-    process.env.NEXT_PUBLIC_SITE_URL || "https://krutoiservis.ru/";
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://krutoiservis.ru";
 
   // Структурированные данные для организации (LocalBusiness)
   const organizationSchema = {
@@ -28,13 +27,7 @@ export function StructuredData() {
     openingHoursSpecification: [
       {
         "@type": "OpeningHoursSpecification",
-        dayOfWeek: [
-          "Monday",
-          "Tuesday",
-          "Wednesday",
-          "Thursday",
-          "Friday",
-        ],
+        dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
         opens: "10:00",
         closes: "19:00",
       },

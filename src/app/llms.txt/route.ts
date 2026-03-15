@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 
 export async function GET() {
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://krutoiservis.ru/";
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://krutoiservis.ru";
 
   const llmsContent = `# llms.txt для Крутой Сервис
 
@@ -18,7 +18,7 @@ export async function GET() {
 
 ## Основные страницы
 - Главная: ${siteUrl}
-- Прайс-лист: ${siteUrl}pricing
+- Прайс-лист: ${siteUrl}/pricing
 
 ## Услуги
 1. Замена дисплея - от 3 490 ₽ (40-60 мин)
@@ -70,10 +70,10 @@ export async function GET() {
 - BreadcrumbList
 
 ## Sitemap
-${siteUrl}sitemap.xml
+${siteUrl}/sitemap.xml
 
 ## Robots
-${siteUrl}robots.txt
+${siteUrl}/robots.txt
 `;
 
   return new NextResponse(llmsContent, {
