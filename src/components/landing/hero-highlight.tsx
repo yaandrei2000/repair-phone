@@ -9,14 +9,14 @@ import { motion, AnimatePresence } from "motion/react";
 
 const repairCards = [
   {
-    device: "IPhone 13",
-    service: "Замена задней крышки • от 1 часа",
-    image: "/iphone14.png",
-  },
-  {
     device: "IPhone 14 Pro",
     service: "Замена аккумулятора • 45 мин",
     image: "/iPhone14Pro.png",
+  },
+  {
+    device: "IPhone 13",
+    service: "Замена задней крышки • от 1 часа",
+    image: "/iphone14.png",
   },
   {
     device: "Samsung Galaxy S24 Ultra",
