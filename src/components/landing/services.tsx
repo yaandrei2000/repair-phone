@@ -52,9 +52,9 @@ export function Services() {
               key={index}
               className="relative flex flex-col items-center text-center"
             >
-              {/* Светлое свечение под «плашкой» */}
+              {/* Светлое свечение под «плашкой» — только на десктопе, чтобы на мобилке не было артефактов теней */}
               <div
-                className="pointer-events-none absolute inset-x-6 -top-2 h-24 rounded-full bg-primary/5 blur-2xl md:inset-x-4"
+                className="pointer-events-none absolute inset-x-6 -top-2 hidden h-24 rounded-full bg-primary/5 blur-2xl md:inset-x-4 md:block"
                 aria-hidden="true"
               />
 
