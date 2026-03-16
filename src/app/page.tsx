@@ -23,6 +23,9 @@ export const metadata: Metadata = {
     "срочный ремонт телефонов Владимир",
     "ремонт после воды Владимир",
   ],
+  formatDetection: {
+    telephone: true,
+  },
   openGraph: {
     type: "website",
     locale: "ru_RU",
