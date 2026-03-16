@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     "ремонт после воды Владимир",
   ],
   formatDetection: {
-    telephone: true,
+    telephone: false,
   },
   openGraph: {
     type: "website",
