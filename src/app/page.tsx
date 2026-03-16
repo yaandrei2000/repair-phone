@@ -55,7 +55,7 @@ export const metadata: Metadata = {
     },
   },
   alternates: {
-    canonical: "/",
+    canonical: "https://krutoiservis.ru",
   },
   // verification: {
   //   yandex: process.env.NEXT_PUBLIC_YANDEX_VERIFICATION,
