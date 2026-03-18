@@ -5,19 +5,19 @@ import { motion } from "motion/react";
 
 const reasons = [
   {
-    title: "Сразу говорим правду о состоянии телефона",
+    title: "Опыт в ремонте смартфонов популярных брендов",
     description:
-      "Показываем, что сломано, какие есть варианты ремонта и чем они отличаются по цене и рискам.",
+      "Больше 5 лет чиним iPhone, Samsung, Xiaomi, Huawei и другие модели. Хорошо знаем их типовые поломки и слабые места, поэтому быстро находим причину и предлагаем понятные варианты ремонта.",
   },
   {
-    title: "Каждый этап прозрачен для клиента",
+    title: "Квалификация и обучение в сервисных центрах",
     description:
-      "Вы знаете, что с телефоном происходит прямо сейчас: от диагностики до финальной проверки по чек‑листу.",
+      "Проходил обучение и сертификацию в профессиональных сервисах. Постоянно обновляю знания, слежу за технологиями и методами ремонта, чтобы ваш смартфон обслуживался по актуальным стандартам.",
   },
   {
-    title: "Относимся к репутации как к самому дорогому девайсу",
+    title: "Гарантия и индивидуальный подход",
     description:
-      "Работаем так, чтобы за нас было не стыдно порекомендовать друзьям и родственникам.",
+      "Даём гарантию на работы и установленные запчасти. Подбираем решение под ваш бюджет: объясняем, где можно сэкономить, а где лучше выбрать оригинал, и всегда остаёмся на связи, если после ремонта возникнут вопросы.",
   },
 ];
 
@@ -32,42 +32,33 @@ export function Trust() {
           </h2>
 
           <p className="max-w-[620px] text-[14px] leading-relaxed text-muted-foreground md:text-base">
-            Мы сделали ремонт смартфона максимально понятным и предсказуемым:
-            без давления, с фокусом на результат и ощущение, что о вас правда
-            позаботились.
+            Объясняем, что именно делаем с телефоном, подбираем запчасти под ваш
+            бюджет и даём гарантию на результат.
           </p>
         </div>
 
         {/* Блок с причинами и анимацией на белом фоне */}
         <div className="rounded-[32px] border border-border/40 bg-white px-4 py-6 shadow-sm md:px-8 md:py-8">
           <div className="flex flex-col gap-6 md:flex-row md:items-start md:gap-10">
-            {/* Левая часть: крупные цифры и текст без подложки */}
-            <div className="flex-1 space-y-5 md:space-y-6">
-              <div className="flex flex-wrap items-center gap-3 text-sm text-muted-foreground md:text-sm">
-                <span className="inline-flex items-center gap-1.5">
-                  <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
-                  <span>2 500+ ремонтов в месяц</span>
-                </span>
-                <span className="inline-flex items-center gap-1.5">
-                  <span className="h-1.5 w-1.5 rounded-full bg-amber-300" />
-                  <span>4.9/5 по отзывам</span>
-                </span>
-                <span className="inline-flex items-center gap-1.5">
-                  <span className="h-1.5 w-1.5 rounded-full bg-sky-400" />
-                  <span>гарантия до 12 месяцев</span>
-                </span>
-              </div>
+            {/* Левая часть: только визуальный блок без текста */}
+            <div className="flex-1">
+              <div className="relative flex h-[220px] items-center justify-center md:h-[260px]">
+                {/* Внешний мягкий круг */}
+                <div className="absolute h-[200px] w-[200px] rounded-full bg-primary/5 blur-2xl md:h-[230px] md:w-[230px]" />
+                {/* Средний круг */}
+                <div className="absolute h-[150px] w-[150px] rounded-full bg-primary/10 md:h-[180px] md:w-[180px]" />
+                {/* Внутренний круг */}
+                <div className="absolute h-[96px] w-[96px] rounded-full bg-primary md:h-[112px] md:w-[112px]" />
 
-              <div className="relative mt-2 text-[13px] leading-relaxed text-muted-foreground md:text-sm">
-                <p>
-                  Для нас доверие важнее разового чека. Поэтому если после
-                  ремонта что-то пойдёт не так — вы знаете, куда и к кому
-                  обратиться, а не ищете новый сервис.
-                </p>
+                {/* Маленькие индикаторы вокруг круга */}
+                <span className="absolute -top-2 left-1/2 h-3 w-3 -translate-x-1/2 rounded-full bg-emerald-400 shadow-[0_0_0_4px_rgba(16,185,129,0.25)]" />
+                <span className="absolute bottom-3 left-4 h-2.5 w-2.5 rounded-full bg-sky-400 shadow-[0_0_0_4px_rgba(56,189,248,0.25)] md:left-6" />
+                <span className="absolute bottom-6 right-6 h-2.5 w-2.5 rounded-full bg-amber-300 shadow-[0_0_0_4px_rgba(252,211,77,0.3)] md:right-10" />
+                <span className="absolute top-8 right-10 h-2 w-2 rounded-full bg-primary/70 md:right-14" />
               </div>
             </div>
 
-            {/* Правая часть: простая колонка причин без линии и таймлайна */}
+            {/* Правая часть: простая колонка причин без шагов */}
             <div className="flex-1">
               <div className="flex flex-col gap-4 md:gap-5">
                 {reasons.map((reason, index) => (
@@ -80,10 +71,7 @@ export function Trust() {
                     whileHover={{ scale: 1.02, x: 2 }}
                     className="group text-left"
                   >
-                    <p className="text-[12px] font-medium uppercase tracking-[0.14em] text-primary/70 md:text-xs">
-                      Шаг {index + 1}
-                    </p>
-                    <div className="mt-1 flex items-start gap-2">
+                    <div className="flex items-start gap-2">
                       <span className="mt-1 h-1.5 w-1.5 flex-none rounded-full bg-primary group-hover:bg-sky-400" />
                       <div>
                         <h3 className="text-[15px] font-medium text-foreground md:text-[15px]">
