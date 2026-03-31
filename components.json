@@ -19,8 +19,5 @@
     "lib": "@/lib",
     "hooks": "@/hooks"
   },
-  "registries": {
-		"@aceternity": "https://ui.aceternity.com/registry/{name}.json",
-		"@cult-ui": "https://cult-ui.com/r/{name}.json"
-	}
+  "registries": {}
 }

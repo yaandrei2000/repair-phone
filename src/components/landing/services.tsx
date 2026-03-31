@@ -8,7 +8,7 @@ const services = [
       "Оригинальные и качественные OLED/LCD модули для iPhone, Samsung, Xiaomi.",
     price: "от 3 490 ₽",
     duration: "40-60 мин",
-    image: "/6381.png",
+    image: "/phone-cracked-display.png",
   },
   {
     title: "Замена аккумулятора",
@@ -16,7 +16,7 @@ const services = [
       "Быстро восстановим автономность устройства и проверим контроллер питания.",
     price: "от 2 190 ₽",
     duration: "30-45 мин",
-    image: "/iphone1.png",
+    image: "/iphone-7-disassembled.png",
   },
   {
     title: "Замена разъёма зарядки",
@@ -24,7 +24,7 @@ const services = [
       "Устраним проблему с зарядкой, заменим порт и проверим систему питания устройства.",
     price: "от 1 790 ₽",
     duration: "30-60 мин",
-    image: "/phone-charging.png",
+    image: "/phone-charging-port-connected.png",
   },
 ];
 

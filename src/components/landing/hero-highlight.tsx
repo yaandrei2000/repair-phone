@@ -11,17 +11,17 @@ const repairCards = [
   {
     device: "IPhone 14 Pro",
     service: "Замена аккумулятора • 45 мин",
-    image: "/iPhone14Pro.png",
+    image: "/iphone-14-pro-disassembled.png",
   },
   {
     device: "IPhone 13",
     service: "Замена задней крышки • от 1 часа",
-    image: "/iphone14.png",
+    image: "/iphone-14-back-cracked.png",
   },
   {
     device: "Samsung Galaxy S24 Ultra",
     service: "Замена дисплея • 60 мин",
-    image: "/SamsungGalaxyS24Ultra.png",
+    image: "/samsung-s24-ultra-disassembled.png",
   },
 ];
 

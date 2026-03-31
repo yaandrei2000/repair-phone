@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+
 import { Suspense } from "react";
 import { Inter } from "next/font/google";
 import "./globals.css";
@@ -20,12 +20,12 @@ export default function RootLayout({
   return (
     <html lang="ru" className={inter.variable}>
       <body className="antialiased">
-        <TooltipProvider>
-          <Suspense fallback={null}>
-            <ScrollToForm />
-          </Suspense>
-          {children}
-        </TooltipProvider>
+          <TooltipProvider>
+            <Suspense fallback={null}>
+              <ScrollToForm />
+            </Suspense>
+            {children}
+          </TooltipProvider>
       </body>
     </html>
   );
