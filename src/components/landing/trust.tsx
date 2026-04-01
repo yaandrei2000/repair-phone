@@ -20,10 +20,16 @@ const reasons = [
 	}
 ]
 
+const stats = [
+	{ value: '5+', label: 'лет опыта' },
+	{ value: '2000+', label: 'ремонтов' },
+	{ value: '12', label: 'мес. гарантии' }
+]
+
 export function Trust() {
 	return (
 		<section className='bg-background w-full'>
-			<div className='container mx-auto flex max-w-[1440px] flex-col gap-6 px-[18px] pt-[30px] pb-[34px] md:gap-10 md:px-16 md:pt-14 md:pb-20'>
+			<div className='container mx-auto flex max-w-[1440px] flex-col gap-8 px-[18px] pt-[30px] pb-[34px] md:gap-12 md:px-16 md:pt-14 md:pb-20'>
 				{/* Заголовок */}
 				<div className='flex flex-col gap-2 md:gap-3'>
 					<h2 className='text-foreground text-[28px] leading-tight font-normal md:text-[42px]'>
@@ -36,60 +42,91 @@ export function Trust() {
 					</p>
 				</div>
 
-				{/* Блок с причинами и анимацией на белом фоне */}
-				<div className='border-border/40 rounded-[32px] border bg-white px-4 py-6 shadow-sm md:px-8 md:py-8'>
-					<div className='flex flex-col gap-6 md:flex-row md:items-start md:gap-10'>
-						{/* Левая часть: только визуальный блок без текста */}
-						<div className='flex-1'>
-							<div className='relative flex h-[220px] items-center justify-center md:h-[260px]'>
-								{/* Внешний мягкий круг */}
-								<div className='bg-primary/5 absolute h-[200px] w-[200px] rounded-full blur-2xl md:h-[230px] md:w-[230px]' />
-								{/* Средний круг */}
-								<div className='bg-primary/10 absolute h-[150px] w-[150px] rounded-full md:h-[180px] md:w-[180px]' />
-								{/* Внутренний круг */}
-								<div className='bg-primary absolute h-[96px] w-[96px] rounded-full md:h-[112px] md:w-[112px]' />
-
-								{/* Маленькие индикаторы вокруг круга */}
-								<span className='absolute -top-2 left-1/2 h-3 w-3 -translate-x-1/2 rounded-full bg-emerald-400 shadow-[0_0_0_4px_rgba(16,185,129,0.25)]' />
-								<span className='absolute bottom-3 left-4 h-2.5 w-2.5 rounded-full bg-sky-400 shadow-[0_0_0_4px_rgba(56,189,248,0.25)] md:left-6' />
-								<span className='absolute right-6 bottom-6 h-2.5 w-2.5 rounded-full bg-amber-300 shadow-[0_0_0_4px_rgba(252,211,77,0.3)] md:right-10' />
-								<span className='bg-primary/70 absolute top-8 right-10 h-2 w-2 rounded-full md:right-14' />
+				{/* Основной контент */}
+				<div className='flex flex-col gap-10 md:flex-row md:items-start md:gap-16 lg:gap-20'>
+					{/* Левая часть: большое число и статистика */}
+					<div className='flex flex-col gap-6 md:flex-1'>
+						{/* Большое акцентное число */}
+						<motion.div
+							initial={{ opacity: 0, scale: 0.9 }}
+							whileInView={{ opacity: 1, scale: 1 }}
+							viewport={{ once: true }}
+							transition={{ duration: 0.5 }}
+							className='relative'
+						>
+							<div className='flex items-baseline gap-2'>
+								<span className='text-primary text-[100px] leading-none font-bold md:text-[140px]'>
+									5
+								</span>
+								<span className='text-primary text-[48px] font-light md:text-[64px]'>
+									+
+								</span>
 							</div>
+							<p className='text-foreground -mt-2 text-lg font-medium md:text-xl'>
+								лет практического опыта
+							</p>
+							<p className='text-muted-foreground mt-1 max-w-[280px] text-sm'>
+								в ремонте iPhone, Samsung, Xiaomi и других
+								популярных брендов
+							</p>
+						</motion.div>
+
+						{/* Статистика в ряд */}
+						<div className='mt-4 flex gap-6 md:gap-8'>
+							{stats.slice(1).map((stat, index) => (
+								<motion.div
+									key={stat.label}
+									initial={{ opacity: 0, y: 20 }}
+									whileInView={{ opacity: 1, y: 0 }}
+									viewport={{ once: true }}
+									transition={{
+										duration: 0.4,
+										delay: 0.2 + index * 0.1
+									}}
+									className='flex flex-col'
+								>
+									<span className='text-foreground text-[32px] leading-tight font-semibold md:text-[40px]'>
+										{stat.value}
+									</span>
+									<span className='text-muted-foreground text-sm'>
+										{stat.label}
+									</span>
+								</motion.div>
+							))}
 						</div>
+					</div>
 
-						{/* Правая часть: колонка */}
-						<div className='flex-1'>
-							<div className='flex flex-col gap-4 md:gap-5'>
-								{reasons.map((reason, index) => (
-									<motion.div
-										key={index}
-										initial={{ opacity: 0, y: 10 }}
-										whileInView={{ opacity: 1, y: 0 }}
-										viewport={{
-											once: true,
-											margin: '-20% 0px'
-										}}
-										transition={{
-											duration: 0.35,
-											delay: index * 0.08
-										}}
-										whileHover={{ scale: 1.02, x: 2 }}
-										className='group text-left'
-									>
-										<div className='flex items-start gap-2'>
-											<span className='bg-primary mt-1 h-1.5 w-1.5 flex-none rounded-full group-hover:bg-sky-400' />
-											<div>
-												<h3 className='text-foreground text-[15px] font-medium md:text-[15px]'>
-													{reason.title}
-												</h3>
-												<p className='text-muted-foreground mt-1 text-[13px] leading-relaxed md:text-sm'>
-													{reason.description}
-												</p>
-											</div>
+					{/* Правая часть: причины */}
+					<div className='md:flex-1'>
+						<div className='flex flex-col gap-6'>
+							{reasons.map((reason, index) => (
+								<motion.div
+									key={index}
+									initial={{ opacity: 0, y: 10 }}
+									whileInView={{ opacity: 1, y: 0 }}
+									viewport={{
+										once: true,
+										margin: '-20% 0px'
+									}}
+									transition={{
+										duration: 0.35,
+										delay: index * 0.08
+									}}
+									className='group'
+								>
+									<div className='flex items-start gap-3'>
+										<span className='bg-primary mt-2 h-2 w-2 flex-none rounded-full' />
+										<div>
+											<h3 className='text-foreground text-base font-medium md:text-[17px]'>
+												{reason.title}
+											</h3>
+											<p className='text-muted-foreground mt-1.5 text-sm leading-relaxed'>
+												{reason.description}
+											</p>
 										</div>
-									</motion.div>
-								))}
-							</div>
+									</div>
+								</motion.div>
+							))}
 						</div>
 					</div>
 				</div>

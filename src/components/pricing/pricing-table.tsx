@@ -1,5 +1,4 @@
 import { Badge } from '@/components/ui/badge'
-import { Card, CardContent, CardHeader } from '@/components/ui/card'
 
 const pricingCategories = [
 	{
@@ -145,47 +144,41 @@ const pricingCategories = [
 
 export function PricingTable() {
 	return (
-		<div className='flex flex-col gap-6'>
+		<div className='flex flex-col gap-10 md:gap-12'>
 			{pricingCategories.map((category, categoryIndex) => (
-				<Card key={categoryIndex} className='py-0'>
-					<CardHeader className='p-4 md:p-6'>
-						<h2 className='text-foreground text-[22px] font-medium md:text-[28px]'>
-							{category.category}
-						</h2>
-					</CardHeader>
-					<CardContent className='p-4 pt-0 md:p-6 md:pt-0'>
-						<div className='flex flex-col gap-3'>
-							{category.services.map((service, serviceIndex) => (
-								<div
-									key={serviceIndex}
-									className='border-border flex flex-col gap-2 border-b pb-3 last:border-b-0 last:pb-0 md:flex-row md:items-center md:justify-between md:gap-4'
-								>
-									<div className='flex flex-col gap-1 md:flex-1'>
-										<h3 className='text-foreground font-sans text-base font-medium'>
-											{service.device}
-										</h3>
-										<p className='text-muted-foreground font-sans text-sm'>
-											{service.description}
-										</p>
-									</div>
-									<div className='flex items-center justify-between gap-4 md:justify-end'>
-										<div className='flex flex-col items-end gap-1'>
-											<p className='text-primary text-lg font-medium md:text-xl'>
-												{service.price}
-											</p>
-											<Badge
-												variant='default'
-												className='w-fit'
-											>
-												{service.duration}
-											</Badge>
-										</div>
-									</div>
+				<div key={categoryIndex} className='flex flex-col gap-4'>
+					<h2 className='text-foreground text-[22px] font-medium md:text-[28px]'>
+						{category.category}
+					</h2>
+					<div className='flex flex-col'>
+						{category.services.map((service, serviceIndex) => (
+							<div
+								key={serviceIndex}
+								className='border-border/50 flex flex-col gap-2 border-b py-4 first:pt-0 last:border-b-0 last:pb-0 md:flex-row md:items-center md:justify-between md:gap-4'
+							>
+								<div className='flex flex-col gap-0.5 md:flex-1'>
+									<h3 className='text-foreground text-base font-medium'>
+										{service.device}
+									</h3>
+									<p className='text-muted-foreground text-sm'>
+										{service.description}
+									</p>
 								</div>
-							))}
-						</div>
-					</CardContent>
-				</Card>
+								<div className='flex items-center gap-4 md:justify-end'>
+									<Badge
+										variant='secondary'
+										className='w-fit'
+									>
+										{service.duration}
+									</Badge>
+									<p className='text-foreground text-lg font-semibold md:text-xl'>
+										{service.price}
+									</p>
+								</div>
+							</div>
+						))}
+					</div>
+				</div>
 			))}
 		</div>
 	)

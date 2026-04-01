@@ -54,20 +54,14 @@ export function Services() {
 							key={index}
 							className='relative flex flex-col items-center text-center'
 						>
-							{/* Светлое свечение под «плашкой» — только на десктопе, чтобы на мобилке не было артефактов теней */}
-							<div
-								className='bg-primary/5 pointer-events-none absolute inset-x-6 -top-2 hidden h-24 rounded-full blur-2xl md:inset-x-4 md:block'
-								aria-hidden='true'
-							/>
-
 							{/* Круг-фон позади телефона */}
 							<div className='relative h-[200px] w-[200px] md:h-[230px] md:w-[230px]'>
-								<div className='bg-primary absolute inset-5 rounded-full shadow-[0_24px_60px_rgba(15,23,42,0.22)]' />
+								<div className='bg-primary absolute inset-5 rounded-full shadow-[0_40px_80px_rgba(0,0,0,0.18)]' />
 								<Image
 									src={service.image}
 									alt={`${service.title} - ${service.description} в сервисе Крутой Сервис, Владимир`}
 									fill
-									className='relative object-contain drop-shadow-[0_18px_48px_rgba(0,0,0,0.45)]'
+									className='object-contain'
 								/>
 							</div>
 
