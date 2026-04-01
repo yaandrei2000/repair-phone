@@ -1,3 +1,4 @@
+import { YandexMetricaProvider } from 'next-yandex-metrica'
 import { Inter } from 'next/font/google'
 
 import './globals.css'
@@ -16,7 +17,20 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang='ru' className={inter.variable}>
-			<body className='antialiased'>{children}</body>
+			<body className='antialiased'>
+				<YandexMetricaProvider
+					tagID={108331438}
+					router='app'
+					initParameters={{
+						accurateTrackBounce: true,
+						trackLinks: true,
+						clickmap: true,
+						webvisor: true
+					}}
+				>
+					{children}
+				</YandexMetricaProvider>
+			</body>
 		</html>
 	)
 }

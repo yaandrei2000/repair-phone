@@ -1,4 +1,7 @@
+'use client'
+
 import { Phone } from 'lucide-react'
+import { useMetrica } from 'next-yandex-metrica'
 import Image from 'next/image'
 import Link from 'next/link'
 
@@ -6,6 +9,8 @@ const reviewsLink =
 	'https://yandex.ru/maps/org/krutoy_servis/124779220273/reviews/?from=mapframe&indoorLevel=1&ll=40.384258%2C56.148629&z=17'
 
 export function Header() {
+	const { reachGoal } = useMetrica()
+
 	return (
 		<header className='border-border bg-background/80 sticky top-0 z-50 w-full border-b backdrop-blur'>
 			<div className='container mx-auto flex h-[72px] max-w-[1440px] items-center justify-between px-[18px] py-4 md:h-[88px] md:px-16 md:py-5'>
@@ -54,6 +59,7 @@ export function Header() {
 				<div className='flex items-center gap-3'>
 					<a
 						href='tel:+79066150006'
+						onClick={() => reachGoal('CALL_CLICK')}
 						className='group text-foreground hover:text-primary flex items-center gap-2 text-sm font-semibold transition-colors md:text-base'
 					>
 						<div className='bg-primary text-primary-foreground flex h-8 w-8 items-center justify-center rounded-md transition-all group-hover:scale-105 group-hover:shadow-md md:h-9 md:w-9'>
