@@ -168,7 +168,7 @@ export function PricingTable() {
 									<Badge variant='secondary' className='w-fit'>
 										{service.duration}
 									</Badge>
-									<p className='text-primary text-lg font-semibold md:text-xl'>
+									<p className='text-foreground text-lg font-semibold md:text-xl'>
 										{service.price}
 									</p>
 								</div>
