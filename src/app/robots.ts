@@ -1,16 +1,17 @@
-import { MetadataRoute } from "next";
+import { MetadataRoute } from 'next'
 
 export default function robots(): MetadataRoute.Robots {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://krutoiservis.ru";
+	const baseUrl =
+		process.env.NEXT_PUBLIC_SITE_URL || 'https://krutoiservis.ru'
 
-  return {
-    rules: [
-      {
-        userAgent: "*",
-        allow: "/",
-        disallow: ["/api/"],
-      },
-    ],
-    sitemap: `${baseUrl}/sitemap.xml`,
-  };
+	return {
+		rules: [
+			{
+				userAgent: '*',
+				allow: '/',
+				disallow: ['/api/']
+			}
+		],
+		sitemap: `${baseUrl}/sitemap.xml`
+	}
 }
