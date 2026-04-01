@@ -56,11 +56,11 @@ export const metadata: Metadata = {
 	},
 	alternates: {
 		canonical: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://krutoiservis.ru'}/`
+	},
+	verification: {
+		yandex: process.env.NEXT_PUBLIC_YANDEX_VERIFICATION
+		//   google: process.env.NEXT_PUBLIC_GOOGLE_VERIFICATION,
 	}
-	// verification: {
-	//   yandex: process.env.NEXT_PUBLIC_YANDEX_VERIFICATION,
-	//   google: process.env.NEXT_PUBLIC_GOOGLE_VERIFICATION,
-	// },
 }
 
 export default function Home() {
