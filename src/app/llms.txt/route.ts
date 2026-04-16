@@ -1,9 +1,11 @@
-import { NextResponse } from "next/server";
+import { NextResponse } from 'next/server'
+
+export const dynamic = 'force-static'
 
 export async function GET() {
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://krutoiservis.ru";
-
-  const llmsContent = `# llms.txt для Крутой Сервис
+	const siteUrl =
+		process.env.NEXT_PUBLIC_SITE_URL || 'https://krutoiservis.ru'
+	const llmsContent = `# llms.txt для Крутой Сервис
 
 ## О сайте
 Крутой Сервис - сервисный центр по ремонту смартфонов всех брендов во Владимире.
@@ -74,12 +76,12 @@ ${siteUrl}/sitemap.xml
 
 ## Robots
 ${siteUrl}/robots.txt
-`;
+`
 
-  return new NextResponse(llmsContent, {
-    headers: {
-      "Content-Type": "text/plain; charset=utf-8",
-      "Cache-Control": "public, max-age=3600, s-maxage=3600",
-    },
-  });
+	return new NextResponse(llmsContent, {
+		headers: {
+			'Content-Type': 'text/plain; charset=utf-8',
+			'Cache-Control': 'public, max-age=3600, s-maxage=3600'
+		}
+	})
 }

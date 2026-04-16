@@ -27,7 +27,7 @@ export function FAQ() {
 				<h2 className='text-foreground text-[30px] font-normal md:text-[44px]'>
 					Частые вопросы
 				</h2>
-				<Accordion type='single' collapsible className='w-full'>
+				<Accordion type='multiple' className='w-full'>
 					{faqs.map((faq, index) => (
 						<AccordionItem
 							key={index}
