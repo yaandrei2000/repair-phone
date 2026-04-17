@@ -4,7 +4,7 @@ export const dynamic = 'force-static'
 
 export async function GET() {
 	const siteUrl =
-		process.env.NEXT_PUBLIC_SITE_URL || 'https://krutoiservis.ru'
+		process.env.NEXT_PUBLIC_SITE_URL || 'https://krutoyservice.ru'
 	const llmsContent = `# llms.txt для Крутой Сервис
 
 ## О сайте

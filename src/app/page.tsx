@@ -36,7 +36,7 @@ export const metadata: Metadata = {
 			'Ремонт смартфонов всех брендов во Владимире. Замена экрана, аккумулятора, разъемов. Гарантия 12 месяцев. Бесплатная диагностика. Срочный ремонт за 30-90 минут.',
 		images: [
 			{
-				url: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://krutoiservis.ru'}/og-image.jpg`,
+				url: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://krutoyservice.ru'}/og-image.jpg`,
 				width: 1200,
 				height: 630,
 				alt: 'Крутой Сервис - Ремонт смартфонов'
@@ -55,11 +55,7 @@ export const metadata: Metadata = {
 		}
 	},
 	alternates: {
-		canonical: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://krutoiservis.ru'}/`
-	},
-	verification: {
-		yandex: process.env.NEXT_PUBLIC_YANDEX_VERIFICATION
-		//   google: process.env.NEXT_PUBLIC_GOOGLE_VERIFICATION,
+		canonical: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://krutoyservice.ru'}/`
 	}
 }
 
