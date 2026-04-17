@@ -1,7 +1,5 @@
 import Image from 'next/image'
 
-import { Badge } from '@/components/ui/badge'
-
 const services = [
 	{
 		title: 'Замена дисплея',
@@ -66,26 +64,24 @@ export function Services() {
 							</div>
 
 							{/* Текст под фотографией */}
-							<div className='mt-4 flex flex-col gap-1.5 md:mt-5'>
+							<div className='mt-4 flex flex-col gap-3 md:mt-5'>
 								<h3 className='text-foreground text-[20px] font-medium md:text-[22px]'>
 									{service.title}
 								</h3>
-								<p className='text-muted-foreground hidden text-xs md:block md:text-sm'>
+								<p className='text-muted-foreground text-xs md:text-sm'>
 									{service.description}
 								</p>
-								<p className='text-foreground text-base font-semibold md:text-lg md:font-bold'>
-									{service.price}
-								</p>
-							</div>
 
-							{/* Бейджик со временем выполнения */}
-							<Badge
-								variant='secondary'
-								className='text-foreground mt-2 rounded-full px-3 py-1 text-[11px] font-medium md:mt-3 md:text-xs'
-							>
-								<span className='bg-primary mr-1.5 inline-block h-1.5 w-1.5 rounded-full' />
-								<span>{service.duration}</span>
-							</Badge>
+								{/* Мини бейджи */}
+								<div className='flex gap-2 flex-wrap justify-center'>
+									<span className='bg-primary text-primary-foreground px-3 py-1 rounded-md text-xs font-semibold'>
+										{service.price}
+									</span>
+									<span className='bg-secondary text-foreground px-3 py-1 rounded-md text-xs font-semibold'>
+										{service.duration}
+									</span>
+								</div>
+							</div>
 						</div>
 					))}
 				</div>
