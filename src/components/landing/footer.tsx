@@ -8,7 +8,9 @@ export function Footer() {
 	return (
 		<footer className='border-border bg-background w-full border-t'>
 			<div className='container mx-auto flex max-w-[1440px] flex-col gap-4 px-[18px] py-8 md:gap-5 md:px-16 md:py-12'>
-				<div className='flex flex-col gap-2 md:flex-row md:items-center md:justify-between'>
+				{/* Верхняя часть */}
+				<div className='flex flex-col gap-6 md:flex-row md:items-start md:justify-between'>
+					{/* Лого */}
 					<Link href='/' className='flex items-center gap-3'>
 						<Image
 							src='/logo.png'
@@ -21,6 +23,8 @@ export function Footer() {
 							Крутой Сервис
 						</span>
 					</Link>
+
+					{/* Навигация */}
 					<nav className='flex flex-col gap-2 md:flex-row md:items-center md:gap-6'>
 						<Link
 							href='/pricing'
@@ -43,8 +47,29 @@ export function Footer() {
 							Контакты
 						</Link>
 					</nav>
+
+					{/* Соцсети */}
+					<div className='flex flex-col gap-2 md:items-end'>
+						<a
+							href='https://t.me/krutoyservis'
+							target='_blank'
+							rel='noopener noreferrer'
+							className='text-muted-foreground hover:text-foreground flex items-center gap-2 transition-colors'
+						>
+							<Image
+								src='/telegram.svg'
+								alt='Telegram'
+								width={24}
+								height={24}
+								className='h-6 w-6'
+							/>
+							<span className='font-sans text-sm'>Telegram</span>
+						</a>
+					</div>
 				</div>
-				<p className='text-muted-foreground font-sans text-xs md:text-[13px]'>
+
+				{/* Копирайт */}
+				<p className='text-muted-foreground border-t pt-4 font-sans text-xs md:border-t-0 md:text-[13px]'>
 					© 2026 Крутой Сервис. Все права защищены.
 				</p>
 			</div>
