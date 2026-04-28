@@ -1,6 +1,6 @@
+import type { Metadata } from 'next'
 import { YandexMetricaProvider } from 'next-yandex-metrica'
 import { Inter } from 'next/font/google'
-import type { Metadata } from 'next'
 
 import './globals.css'
 
@@ -13,8 +13,8 @@ const inter = Inter({
 
 export const metadata: Metadata = {
 	icons: {
-		icon: '/favicon.ico',
-	},
+		icon: [{ url: '/favicon.svg', type: 'image/svg+xml' }]
+	}
 }
 
 export default function RootLayout({
