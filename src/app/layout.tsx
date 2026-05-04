@@ -23,7 +23,7 @@ export default function RootLayout({
 	children: React.ReactNode
 }>) {
 	return (
-		<html lang='ru' className={inter.variable}>
+		<html lang='ru' className={`${inter.variable} bg-background`}>
 			<body className='antialiased'>
 				<YandexMetricaProvider
 					tagID={108331438}

@@ -1,4 +1,6 @@
-import { Badge } from '@/components/ui/badge'
+'use client'
+
+import { motion } from 'motion/react'
 
 const pricingCategories = [
 	{
@@ -144,19 +146,26 @@ const pricingCategories = [
 
 export function PricingTable() {
 	return (
-		<div className='flex flex-col gap-10 md:gap-12'>
+		<div className='flex flex-col gap-12 md:gap-16'>
 			{pricingCategories.map((category, categoryIndex) => (
-				<div key={categoryIndex} className='flex flex-col gap-4'>
-					<h2 className='text-foreground text-[22px] font-medium md:text-[28px]'>
+				<motion.div
+					key={categoryIndex}
+					initial={{ opacity: 0, y: 20 }}
+					whileInView={{ opacity: 1, y: 0 }}
+					viewport={{ once: true }}
+					transition={{ duration: 0.5, delay: categoryIndex * 0.05 }}
+					className='flex flex-col gap-5'
+				>
+					<h2 className='text-foreground text-xl font-medium md:text-2xl'>
 						{category.category}
 					</h2>
-					<div className='flex flex-col'>
+					<div className='bg-card border-border/50 overflow-hidden rounded-2xl border'>
 						{category.services.map((service, serviceIndex) => (
 							<div
 								key={serviceIndex}
-								className='border-border/50 flex flex-col gap-2 border-b py-4 first:pt-0 last:border-b-0 last:pb-0 md:flex-row md:items-center md:justify-between md:gap-4'
+								className='border-border/50 hover:bg-secondary/30 flex flex-col gap-3 border-b px-5 py-4 transition-colors last:border-b-0 md:flex-row md:items-center md:justify-between md:gap-6 md:px-6 md:py-5'
 							>
-								<div className='flex flex-col gap-0.5 md:flex-1'>
+								<div className='flex-1'>
 									<h3 className='text-foreground text-base font-medium'>
 										{service.device}
 									</h3>
@@ -164,21 +173,18 @@ export function PricingTable() {
 										{service.description}
 									</p>
 								</div>
-								<div className='flex items-center gap-4 md:justify-end'>
-									<Badge
-										variant='secondary'
-										className='w-fit'
-									>
+								<div className='flex items-center gap-4'>
+									<span className='bg-secondary text-muted-foreground rounded-full px-3 py-1 text-xs font-medium'>
 										{service.duration}
-									</Badge>
-									<p className='text-foreground text-lg font-semibold md:text-xl'>
+									</span>
+									<span className='text-foreground text-lg font-medium md:text-xl'>
 										{service.price}
-									</p>
+									</span>
 								</div>
 							</div>
 						))}
 					</div>
-				</div>
+				</motion.div>
 			))}
 		</div>
 	)
