@@ -65,7 +65,7 @@ export default function Home() {
 			<StructuredData />
 			<main className='flex min-h-screen flex-col'>
 				<Header />
-				<HeroHighlight />
+				<HeroHа каighlight />
 				<Services />
 				<Trust />
 				<FAQ />

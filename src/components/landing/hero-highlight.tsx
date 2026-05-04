@@ -2,7 +2,7 @@
 
 import { AnimatePresence, motion } from 'motion/react'
 import Image from 'next/image'
-import { useEffect, useState } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
 
 import { Badge } from '@/components/ui/badge'
 
@@ -29,13 +29,43 @@ const repairCards = [
 
 export function HeroHighlight() {
 	const [currentIndex, setCurrentIndex] = useState(0)
+	const touchStartX = useRef(0)
+	const touchEndX = useRef(0)
+	const minSwipeDistance = 50
+
+	const goToNext = useCallback(() => {
+		setCurrentIndex(prev => (prev + 1) % repairCards.length)
+	}, [])
+
+	const goToPrev = useCallback(() => {
+		setCurrentIndex(prev => (prev - 1 + repairCards.length) % repairCards.length)
+	}, [])
+
+	const handleTouchStart = (e: React.TouchEvent) => {
+		touchStartX.current = e.targetTouches[0].clientX
+	}
+
+	const handleTouchMove = (e: React.TouchEvent) => {
+		touchEndX.current = e.targetTouches[0].clientX
+	}
+
+	const handleTouchEnd = () => {
+		const distance = touchStartX.current - touchEndX.current
+		if (Math.abs(distance) > minSwipeDistance) {
+			if (distance > 0) {
+				goToNext()
+			} else {
+				goToPrev()
+			}
+		}
+	}
 
 	useEffect(() => {
 		const interval = setInterval(() => {
-			setCurrentIndex(prev => (prev + 1) % repairCards.length)
+			goToNext()
 		}, 5000)
 		return () => clearInterval(interval)
-	}, [])
+	}, [goToNext])
 
 	return (
 		<section className='bg-background w-full overflow-hidden'>
@@ -105,7 +135,12 @@ export function HeroHighlight() {
 					</div>
 
 					{/* Right visual */}
-					<div className='relative flex flex-1 items-center justify-center'>
+					<div 
+						className='relative flex flex-1 items-center justify-center touch-pan-y'
+						onTouchStart={handleTouchStart}
+						onTouchMove={handleTouchMove}
+						onTouchEnd={handleTouchEnd}
+					>
 						{/* Background shape */}
 						<div className='bg-secondary absolute h-72 w-72 rounded-full md:h-80 md:w-80 lg:h-96 lg:w-96' />
 
