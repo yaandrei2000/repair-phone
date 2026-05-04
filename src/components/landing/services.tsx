@@ -52,8 +52,8 @@ export function Services() {
 						transition={{ duration: 0.5, delay: 0.1 }}
 						className='text-muted-foreground max-w-lg text-base md:text-lg'
 					>
-						Точная цена до начала работ. Быстро устраняем типовые и
-						сложные поломки.
+						Быстро устраняем типовые и сложные поломки с
+						оригинальными или проверенными аналоговыми запчастями.
 					</motion.p>
 				</div>
 

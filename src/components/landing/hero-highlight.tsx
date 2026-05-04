@@ -2,7 +2,7 @@
 
 import { AnimatePresence, motion } from 'motion/react'
 import Image from 'next/image'
-import { useEffect, useState } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
 
 import { Badge } from '@/components/ui/badge'
 
@@ -29,13 +29,45 @@ const repairCards = [
 
 export function HeroHighlight() {
 	const [currentIndex, setCurrentIndex] = useState(0)
+	const touchStartX = useRef(0)
+	const touchEndX = useRef(0)
+	const minSwipeDistance = 50
+
+	const goToNext = useCallback(() => {
+		setCurrentIndex(prev => (prev + 1) % repairCards.length)
+	}, [])
+
+	const goToPrev = useCallback(() => {
+		setCurrentIndex(
+			prev => (prev - 1 + repairCards.length) % repairCards.length
+		)
+	}, [])
+
+	const handleTouchStart = (e: React.TouchEvent) => {
+		touchStartX.current = e.targetTouches[0].clientX
+	}
+
+	const handleTouchMove = (e: React.TouchEvent) => {
+		touchEndX.current = e.targetTouches[0].clientX
+	}
+
+	const handleTouchEnd = () => {
+		const distance = touchStartX.current - touchEndX.current
+		if (Math.abs(distance) > minSwipeDistance) {
+			if (distance > 0) {
+				goToNext()
+			} else {
+				goToPrev()
+			}
+		}
+	}
 
 	useEffect(() => {
 		const interval = setInterval(() => {
-			setCurrentIndex(prev => (prev + 1) % repairCards.length)
+			goToNext()
 		}, 5000)
 		return () => clearInterval(interval)
-	}, [])
+	}, [goToNext])
 
 	return (
 		<section className='bg-background w-full overflow-hidden'>
@@ -58,43 +90,13 @@ export function HeroHighlight() {
 						</h1>
 
 						<p className='text-muted-foreground mb-8 max-w-md text-base leading-relaxed md:text-lg'>
-							Восстанавливаем технику после любых поломок.
-							Диагностика в день обращения и честная цена до
-							старта работ.
+							Восстанавливаем технику после любых поломок:
+							разбитый экран, батарея, вода, разъёмы. Диагностика
+							в день обращения и честная цена до старта работ.
 						</p>
 
-						{/* Stats */}
-						<div className='flex flex-wrap items-center justify-center gap-8 md:justify-start'>
-							<div className='flex flex-col'>
-								<span className='text-foreground text-2xl font-medium md:text-3xl'>
-									5+
-								</span>
-								<span className='text-muted-foreground text-sm'>
-									лет опыта
-								</span>
-							</div>
-							<div className='bg-border h-10 w-px' />
-							<div className='flex flex-col'>
-								<span className='text-foreground text-2xl font-medium md:text-3xl'>
-									2000+
-								</span>
-								<span className='text-muted-foreground text-sm'>
-									ремонтов
-								</span>
-							</div>
-							<div className='bg-border h-10 w-px' />
-							<div className='flex flex-col'>
-								<span className='text-foreground text-2xl font-medium md:text-3xl'>
-									4.9
-								</span>
-								<span className='text-muted-foreground text-sm'>
-									рейтинг
-								</span>
-							</div>
-						</div>
-
 						{/* Address - Desktop */}
-						<div className='border-border mt-10 hidden border-t pt-6 md:block'>
+						<div className='border-border hidden border-t pt-6 md:block'>
 							<p className='text-foreground text-sm font-medium'>
 								ул. Тракторная, д. 46/1
 							</p>
@@ -105,7 +107,12 @@ export function HeroHighlight() {
 					</div>
 
 					{/* Right visual */}
-					<div className='relative flex flex-1 items-center justify-center'>
+					<div
+						className='relative flex flex-1 touch-pan-y items-center justify-center'
+						onTouchStart={handleTouchStart}
+						onTouchMove={handleTouchMove}
+						onTouchEnd={handleTouchEnd}
+					>
 						{/* Background shape */}
 						<div className='bg-secondary absolute h-72 w-72 rounded-full md:h-80 md:w-80 lg:h-96 lg:w-96' />
 
