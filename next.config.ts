@@ -5,7 +5,6 @@ const nextConfig: NextConfig = {
 		globalNotFound: true
 	},
 	reactCompiler: true,
-	output: 'export',
 	images: {
 		unoptimized: true
 	}
