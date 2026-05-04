@@ -103,7 +103,7 @@ export function ContactsSection() {
 						<a href='tel:+79066150006' className='mt-8 inline-block'>
 							<Button
 								size='lg'
-								className='bg-primary text-primary-foreground hover:bg-primary/90 gap-2 rounded-full px-6'
+								className='bg-accent text-accent-foreground hover:bg-accent/90 gap-2 rounded-full px-6'
 							>
 								<Phone className='h-4 w-4' />
 								Позвонить
