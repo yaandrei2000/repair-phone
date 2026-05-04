@@ -8,18 +8,21 @@ import { Badge } from '@/components/ui/badge'
 
 const repairCards = [
 	{
-		device: 'IPhone 14 Pro',
-		service: 'Замена аккумулятора • 45 мин',
+		device: 'iPhone 14 Pro',
+		service: 'Замена аккумулятора',
+		time: '45 мин',
 		image: '/iphone-14-pro-disassembled.png'
 	},
 	{
-		device: 'IPhone 13',
-		service: 'Замена задней крышки • от 1 часа',
+		device: 'iPhone 13',
+		service: 'Замена задней крышки',
+		time: 'от 1 часа',
 		image: '/iphone-14-back-cracked.png'
 	},
 	{
-		device: 'Samsung Galaxy S24 Ultra',
-		service: 'Замена дисплея • 60 мин',
+		device: 'Samsung S24 Ultra',
+		service: 'Замена дисплея',
+		time: '60 мин',
 		image: '/samsung-s24-ultra-disassembled.png'
 	}
 ]
@@ -30,59 +33,103 @@ export function HeroHighlight() {
 	useEffect(() => {
 		const interval = setInterval(() => {
 			setCurrentIndex(prev => (prev + 1) % repairCards.length)
-		}, 6000) // Смена каждые 6 секунд
-
+		}, 5000)
 		return () => clearInterval(interval)
 	}, [])
 
 	return (
-		<section className='bg-background w-full'>
-			<div className='container mx-auto flex max-w-[1440px] flex-col gap-10 px-[18px] pt-9 pb-10 md:flex-row md:items-center md:gap-14 md:px-16 md:pt-14 md:pb-16'>
-				{/* Left content */}
-				<div className='relative flex flex-1 flex-col gap-5'>
-					<Badge
-						variant='secondary'
-						className='rounded-full px-3 py-1 text-xs md:text-sm'
-					>
-						г. Владимир • Сервис по ремонту смартфонов
-					</Badge>
+		<section className='bg-background w-full overflow-hidden'>
+			<div className='container mx-auto max-w-6xl px-5 py-16 md:px-8 md:py-24'>
+				<div className='flex flex-col items-center gap-12 md:flex-row md:gap-16 lg:gap-24'>
+					{/* Left content */}
+					<div className='flex flex-1 flex-col items-center text-center md:items-start md:text-left'>
+						<Badge
+							variant='secondary'
+							className='mb-6 rounded-full border-0 bg-secondary px-4 py-1.5 text-xs font-medium'
+						>
+							г. Владимир
+						</Badge>
 
-					<h1 className='text-foreground text-[40px] leading-tight font-semibold md:text-[64px]'>
-						Ремонт смартфонов
-						<br />
-						<span className='font-normal'>
-							с гарантией до 12 месяцев
-						</span>
-					</h1>
+						<h1 className='text-foreground mb-6 text-4xl font-medium tracking-tight md:text-5xl lg:text-6xl'>
+							<span className='block'>Ремонт смартфонов</span>
+							<span className='text-muted-foreground block font-normal'>
+								с гарантией до 12 месяцев
+							</span>
+						</h1>
 
-					<p className='text-muted-foreground max-w-xl text-sm md:text-lg'>
-						Восстанавливаем технику после любых поломок: разбитый
-						экран, батарея, вода, разъёмы. Диагностика в день
-						обращения и честная цена до старта работ.
-					</p>
+						<p className='text-muted-foreground mb-8 max-w-md text-base leading-relaxed md:text-lg'>
+							Восстанавливаем технику после любых поломок.
+							Диагностика в день обращения и честная цена до
+							старта работ.
+						</p>
 
-					{/* Address and rating - desktop only */}
-					<div className='mt-4 hidden flex-col gap-3 md:flex'>
-						<div className='text-muted-foreground flex flex-col gap-1 text-xs md:text-sm'>
-							<p className='text-foreground font-medium'>
-								ул. Тракторная, д. 46/1
-							</p>
-							<p>Вход со стороны пешеходного перехода, -1 этаж</p>
-						</div>
-						<div className='text-muted-foreground flex flex-wrap gap-4 text-xs md:text-sm'>
-							<div className='flex items-center gap-2'>
-								<span className='bg-primary h-2 w-2 rounded-full' />
-								<span>4.9/5 по отзывам клиентов</span>
+						{/* Stats */}
+						<div className='flex flex-wrap items-center justify-center gap-8 md:justify-start'>
+							<div className='flex flex-col'>
+								<span className='text-foreground text-2xl font-medium md:text-3xl'>
+									5+
+								</span>
+								<span className='text-muted-foreground text-sm'>
+									лет опыта
+								</span>
+							</div>
+							<div className='bg-border h-10 w-px' />
+							<div className='flex flex-col'>
+								<span className='text-foreground text-2xl font-medium md:text-3xl'>
+									2000+
+								</span>
+								<span className='text-muted-foreground text-sm'>
+									ремонтов
+								</span>
+							</div>
+							<div className='bg-border h-10 w-px' />
+							<div className='flex flex-col'>
+								<span className='text-foreground text-2xl font-medium md:text-3xl'>
+									4.9
+								</span>
+								<span className='text-muted-foreground text-sm'>
+									рейтинг
+								</span>
 							</div>
 						</div>
-					</div>
-				</div>
 
-				{/* Right visual */}
-				<div className='relative flex flex-1 flex-col items-center'>
-					{/* Big accent circle */}
-					<div className='bg-primary relative h-[260px] w-[260px] rounded-full shadow-[0_40px_80px_rgba(0,0,0,0.18)] md:h-[360px] md:w-[360px]'>
+						{/* Address - Desktop */}
+						<div className='border-border mt-10 hidden border-t pt-6 md:block'>
+							<p className='text-foreground text-sm font-medium'>
+								ул. Тракторная, д. 46/1
+							</p>
+							<p className='text-muted-foreground text-sm'>
+								Вход со стороны пешеходного перехода, -1 этаж
+							</p>
+						</div>
+					</div>
+
+					{/* Right visual */}
+					<div className='relative flex flex-1 items-center justify-center'>
+						{/* Background shape */}
+						<div className='bg-secondary absolute h-72 w-72 rounded-full md:h-80 md:w-80 lg:h-96 lg:w-96' />
+
 						{/* Phone image with animation */}
+						<AnimatePresence mode='wait'>
+							<motion.div
+								key={currentIndex}
+								initial={{ opacity: 0, scale: 0.95 }}
+								animate={{ opacity: 1, scale: 1 }}
+								exit={{ opacity: 0, scale: 1.05 }}
+								transition={{ duration: 0.5, ease: 'easeOut' }}
+								className='relative z-10 h-72 w-72 md:h-80 md:w-80 lg:h-96 lg:w-96'
+							>
+								<Image
+									src={repairCards[currentIndex].image}
+									alt={`Ремонт ${repairCards[currentIndex].device}`}
+									fill
+									className='object-contain drop-shadow-2xl'
+									priority={currentIndex === 0}
+								/>
+							</motion.div>
+						</AnimatePresence>
+
+						{/* Floating card */}
 						<AnimatePresence mode='wait'>
 							<motion.div
 								key={currentIndex}
@@ -91,61 +138,55 @@ export function HeroHighlight() {
 								exit={{ opacity: 0, y: -20 }}
 								transition={{
 									duration: 0.4,
-									ease: 'easeInOut'
+									delay: 0.2,
+									ease: 'easeOut'
 								}}
-								className='absolute inset-[-10%]'
+								className='bg-card absolute -right-4 bottom-4 z-20 rounded-2xl px-5 py-4 shadow-xl md:bottom-8 md:right-0'
 							>
-								<Image
-									src={repairCards[currentIndex].image}
-									alt={`Ремонт ${repairCards[currentIndex].device} - ${repairCards[currentIndex].service} в сервисе Крутой Сервис, Владимир`}
-									fill
-									className='object-contain'
-									priority={currentIndex === 0}
-								/>
-							</motion.div>
-						</AnimatePresence>
-
-						{/* Floating card with animation */}
-						<AnimatePresence mode='wait'>
-							<motion.div
-								key={currentIndex}
-								initial={{ opacity: 0, x: 50, scale: 0.8 }}
-								animate={{ opacity: 1, x: 0, scale: 1 }}
-								exit={{ opacity: 0, x: -50, scale: 0.8 }}
-								transition={{
-									duration: 0.5,
-									ease: 'easeInOut'
-								}}
-								className='bg-card absolute right-0 -bottom-6 flex items-center gap-2 rounded-xl px-3 py-2 text-xs shadow-lg md:right-4 md:-bottom-10 md:text-sm'
-							>
-								<span className='bg-primary h-2 w-2 rounded-full' />
-								<div className='flex flex-col'>
-									<span className='font-medium'>
-										{repairCards[currentIndex].device}
-									</span>
-									<span className='text-muted-foreground'>
-										{repairCards[currentIndex].service}
-									</span>
+								<div className='flex items-center gap-3'>
+									<div className='bg-accent h-2.5 w-2.5 rounded-full' />
+									<div>
+										<p className='text-foreground text-sm font-medium'>
+											{repairCards[currentIndex].device}
+										</p>
+										<p className='text-muted-foreground text-xs'>
+											{
+												repairCards[currentIndex]
+													.service
+											}{' '}
+											&bull; {repairCards[currentIndex].time}
+										</p>
+									</div>
 								</div>
 							</motion.div>
 						</AnimatePresence>
-					</div>
 
-					{/* Address and rating - mobile only */}
-					<div className='mt-10 flex w-full flex-col gap-3 md:hidden'>
-						<div className='text-muted-foreground flex flex-col gap-1 text-xs'>
-							<p className='text-foreground font-medium'>
-								ул. Тракторная, д. 46/1
-							</p>
-							<p>Вход со стороны пешеходного перехода, -1 этаж</p>
-						</div>
-						<div className='text-muted-foreground flex flex-wrap gap-4 text-xs'>
-							<div className='flex items-center gap-2'>
-								<span className='bg-primary h-2 w-2 rounded-full' />
-								<span>4.9/5 по отзывам клиентов</span>
-							</div>
+						{/* Carousel indicators */}
+						<div className='absolute -bottom-8 left-1/2 flex -translate-x-1/2 gap-2'>
+							{repairCards.map((_, index) => (
+								<button
+									key={index}
+									onClick={() => setCurrentIndex(index)}
+									className={`h-1.5 rounded-full transition-all ${
+										index === currentIndex
+											? 'bg-foreground w-6'
+											: 'bg-border hover:bg-muted-foreground/50 w-1.5'
+									}`}
+									aria-label={`Slide ${index + 1}`}
+								/>
+							))}
 						</div>
 					</div>
+				</div>
+
+				{/* Address - Mobile */}
+				<div className='border-border mt-16 border-t pt-6 text-center md:hidden'>
+					<p className='text-foreground text-sm font-medium'>
+						ул. Тракторная, д. 46/1
+					</p>
+					<p className='text-muted-foreground text-sm'>
+						Вход со стороны пешеходного перехода, -1 этаж
+					</p>
 				</div>
 			</div>
 		</section>

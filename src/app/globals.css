@@ -48,56 +48,56 @@
 }
 
 :root {
-  /* Базовый радиус как в дефолтной теме shadcn (мягкие углы) */
-  --radius: 0.5rem;
-  /* Современные шрифты: Inter для всего (отлично читается на мобилке) */
+  /* Базовый радиус - более мягкие углы для премиального вида */
+  --radius: 0.75rem;
+  /* Современные шрифты: Inter для всего */
   --font-primary: var(--font-inter), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   --font-secondary: var(--font-inter), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 
-  /* Светлая палитра по умолчанию (как на макете) */
-  --background: #f5f6fb; /* светло-серый фон страницы */
-  --foreground: #111827; /* почти черный текст */
+  /* V2: Кремово-белая палитра с тёмными акцентами */
+  --background: #FAF9F7; /* тёплый кремовый фон */
+  --foreground: #1A1A1A; /* глубокий чёрный текст */
 
-  --card: #ffffff;
-  --card-foreground: #111827;
+  --card: #FFFFFF;
+  --card-foreground: #1A1A1A;
 
-  --popover: #ffffff;
-  --popover-foreground: #111827;
+  --popover: #FFFFFF;
+  --popover-foreground: #1A1A1A;
 
-  /* Основной акцент – бирюзово-зелёный как кнопка на макете */
-  --primary: #14B8A6;
-  --primary-foreground: #ffffff;
+  /* Основной акцент – глубокий чёрный для премиальности */
+  --primary: #1A1A1A;
+  --primary-foreground: #FFFFFF;
 
-  --secondary: #e5ecf6; /* мягкий голубовато-серый для вторичных элементов */
-  --secondary-foreground: #111827;
+  --secondary: #F0EFED; /* мягкий серо-бежевый */
+  --secondary-foreground: #1A1A1A;
 
-  --muted: #e5e7eb;
-  --muted-foreground: #6b7280;
+  --muted: #E8E6E3;
+  --muted-foreground: #6B6B6B;
 
-  --accent: #bbbbbb; /* оранжево-золотистый акцент */
-  --accent-foreground: #111827;
+  --accent: #E85A4F; /* терракотовый акцент для CTA */
+  --accent-foreground: #FFFFFF;
 
-  --destructive: #ef4444;
+  --destructive: #DC2626;
 
-  --border: #e2e8f0;
-  --input: #e2e8f0;
-  --ring: #00c2a0;
+  --border: #E5E3DF;
+  --input: #E5E3DF;
+  --ring: #1A1A1A;
 
-  /* Графики и админка в той же гамме */
-  --chart-1: #00c2a0;
-  --chart-2: #3b82f6;
-  --chart-3: #f59e0b;
-  --chart-4: #6366f1;
-  --chart-5: #ec4899;
+  /* Графики */
+  --chart-1: #1A1A1A;
+  --chart-2: #E85A4F;
+  --chart-3: #6B6B6B;
+  --chart-4: #E8E6E3;
+  --chart-5: #FAF9F7;
 
-  --sidebar: #ffffff;
-  --sidebar-foreground: #111827;
-  --sidebar-primary: #00c2a0;
-  --sidebar-primary-foreground: #ffffff;
-  --sidebar-accent: #f3f4f6;
-  --sidebar-accent-foreground: #111827;
-  --sidebar-border: #e5e7eb;
-  --sidebar-ring: #00c2a0;
+  --sidebar: #FFFFFF;
+  --sidebar-foreground: #1A1A1A;
+  --sidebar-primary: #1A1A1A;
+  --sidebar-primary-foreground: #FFFFFF;
+  --sidebar-accent: #F0EFED;
+  --sidebar-accent-foreground: #1A1A1A;
+  --sidebar-border: #E5E3DF;
+  --sidebar-ring: #1A1A1A;
 }
 
 .dark {
@@ -140,9 +140,8 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background font-sans text-foreground;
+    @apply bg-background font-sans text-foreground antialiased;
     font-feature-settings: "cv02", "cv03", "cv04", "cv11";
-    font-variant-numeric: oldstyle-nums;
   }
   h1,
   h2,
@@ -151,7 +150,13 @@
   h5,
   h6 {
     font-family: var(--font-primary);
-    font-weight: 600;
-    letter-spacing: -0.02em;
+    font-weight: 500;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+  }
+  
+  /* Плавные переходы */
+  a, button {
+    transition: all 0.2s ease;
   }
 }

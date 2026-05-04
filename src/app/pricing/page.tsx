@@ -30,13 +30,13 @@ export default function PricingPage() {
 	return (
 		<main className='flex min-h-screen flex-col'>
 			<Header />
-			<section className='bg-background w-full'>
-				<div className='container mx-auto flex max-w-[1440px] flex-col gap-6 px-[18px] py-7 md:gap-8 md:px-16 md:py-14'>
-					<div className='flex flex-col gap-3 md:gap-4'>
-						<h1 className='text-foreground text-[30px] font-normal md:text-[44px]'>
+			<section className='bg-background w-full flex-1'>
+				<div className='container mx-auto max-w-6xl px-5 py-12 md:px-8 md:py-20'>
+					<div className='mb-10 md:mb-14'>
+						<h1 className='text-foreground mb-4 text-3xl font-medium tracking-tight md:text-4xl lg:text-5xl'>
 							Прайс-лист
 						</h1>
-						<p className='text-muted-foreground text-sm md:text-lg'>
+						<p className='text-muted-foreground max-w-xl text-base md:text-lg'>
 							Прозрачные цены на все виды ремонта. Точная
 							стоимость определяется после бесплатной диагностики.
 						</p>
