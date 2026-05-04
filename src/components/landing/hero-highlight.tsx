@@ -47,7 +47,7 @@ export function HeroHighlight() {
 							variant='secondary'
 							className='mb-6 rounded-full border-0 bg-secondary px-4 py-1.5 text-xs font-medium'
 						>
-							г. Владимир • Сервис по ремонту смартфонов
+							г. Владимир
 						</Badge>
 
 						<h1 className='text-foreground mb-6 text-4xl font-medium tracking-tight md:text-5xl lg:text-6xl'>
@@ -167,10 +167,11 @@ export function HeroHighlight() {
 								<button
 									key={index}
 									onClick={() => setCurrentIndex(index)}
-									className={`h-1.5 rounded-full transition-all ${index === currentIndex
+									className={`h-1.5 rounded-full transition-all ${
+										index === currentIndex
 											? 'bg-foreground w-6'
 											: 'bg-border hover:bg-muted-foreground/50 w-1.5'
-										}`}
+									}`}
 									aria-label={`Slide ${index + 1}`}
 								/>
 							))}
