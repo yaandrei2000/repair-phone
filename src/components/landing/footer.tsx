@@ -17,8 +17,13 @@ const socialLinks = [
 	{
 		href: 'https://t.me/krutoyservis',
 		label: 'Telegram',
-		icon: '/telegram.svg'
+		icon: 'https://thesvg.org/icons/telegram/default.svg'
 	}
+	// {
+	// 	href: 'https://max.ru/krutoyservis',
+	// 	label: 'Max',
+	// 	icon: '/icons/max.svg'
+	// }
 ]
 
 export function Footer() {
@@ -38,7 +43,6 @@ export function Footer() {
 								alt='Крутой Сервис'
 								width={36}
 								height={36}
-								className='h-8 w-auto brightness-0 invert transition-transform group-hover:scale-105'
 							/>
 							<span className='text-background text-lg font-medium tracking-tight'>
 								Крутой Сервис
@@ -113,7 +117,6 @@ export function Footer() {
 									alt={link.label}
 									width={20}
 									height={20}
-									className='h-5 w-5 opacity-80 brightness-0 invert group-hover:opacity-100'
 								/>
 								{link.label}
 							</a>
