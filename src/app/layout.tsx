@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import { YandexMetricaProvider } from 'next-yandex-metrica'
 import { Inter } from 'next/font/google'
 
-import './globals.css'
+import '@/shared/styles/globals.css'
 
 const inter = Inter({
 	subsets: ['latin', 'cyrillic'],

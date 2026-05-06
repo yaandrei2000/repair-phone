@@ -11,7 +11,7 @@ export function StructuredData() {
 				'@id': `${siteUrl}#organization`,
 				name: 'Крутой Сервис',
 				description:
-					'Сервисный центр по ремонту смартфонов всех брендов во Владимире. Замена экрана, аккумулятора, разъемов. Гарантия 12 месяцев.',
+					'Сервисный центр по ремонту телефонов всех брендов во Владимире. Замена экрана, аккумулятора, разъемов. Гарантия 12 месяцев.',
 				url: siteUrl,
 				telephone: '+79066150006',
 				priceRange: '$$',
@@ -83,7 +83,7 @@ export function StructuredData() {
 			{
 				'@type': 'Service',
 				'@id': `${siteUrl}#service-repair`,
-				serviceType: 'Ремонт смартфонов',
+				serviceType: 'Ремонт телефонов',
 				provider: { '@id': `${siteUrl}#organization` },
 				areaServed: {
 					'@type': 'City',
@@ -91,7 +91,7 @@ export function StructuredData() {
 				},
 				hasOfferCatalog: {
 					'@type': 'OfferCatalog',
-					name: 'Услуги по ремонту смартфонов',
+					name: 'Услуги по ремонту телефонов',
 					itemListElement: [
 						{
 							'@type': 'Offer',

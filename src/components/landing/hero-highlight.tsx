@@ -47,11 +47,11 @@ export function HeroHighlight() {
 							variant='secondary'
 							className='bg-secondary mb-6 rounded-full border-0 px-4 py-1.5 text-sm font-medium'
 						>
-							г. Владимир • Сервис по ремонту смартфонов
+							г. Владимир • Сервис по ремонту телефонов
 						</Badge>
 
 						<h1 className='text-foreground mb-6 text-4xl font-medium tracking-tight md:text-5xl lg:text-6xl'>
-							<span className='block'>Ремонт смартфонов</span>
+							<span className='block'>Ремонт телефонов</span>
 							<span className='text-muted-foreground block font-normal'>
 								с гарантией до 12 месяцев
 							</span>

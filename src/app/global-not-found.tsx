@@ -4,8 +4,7 @@ import { Inter } from 'next/font/google'
 import { Footer } from '@/components/landing/footer'
 import { Header } from '@/components/landing/header'
 import { Button } from '@/components/ui/button'
-
-import './globals.css'
+import '@/shared/styles/globals.css'
 
 const inter = Inter({
 	subsets: ['latin', 'cyrillic'],

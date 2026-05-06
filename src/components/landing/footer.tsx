@@ -45,7 +45,7 @@ export function Footer() {
 							</span>
 						</Link>
 						<p className='text-background/60 mt-4 text-sm leading-relaxed'>
-							Профессиональный ремонт смартфонов во Владимире с
+							Профессиональный ремонт телефонов во Владимире с
 							гарантией до 12 месяцев
 						</p>
 					</div>
