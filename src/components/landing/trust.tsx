@@ -37,7 +37,7 @@ export function Trust() {
 						className='lg:w-2/5'
 					>
 						<div className='sticky top-32'>
-							<span className='text-foreground text-8xl font-medium tracking-tight md:text-9xl'>
+							<span className='text-primary text-8xl font-medium tracking-tight md:text-9xl'>
 								5+
 							</span>
 							<p className='text-foreground mt-2 text-xl font-medium md:text-2xl'>
@@ -51,7 +51,7 @@ export function Trust() {
 							{/* Mini stats */}
 							<div className='mt-8 flex gap-8'>
 								<div>
-									<span className='text-foreground text-3xl font-medium md:text-4xl'>
+									<span className='text-primary text-3xl font-medium md:text-4xl'>
 										2000+
 									</span>
 									<p className='text-muted-foreground text-sm'>
@@ -59,7 +59,7 @@ export function Trust() {
 									</p>
 								</div>
 								<div>
-									<span className='text-foreground text-3xl font-medium md:text-4xl'>
+									<span className='text-primary text-3xl font-medium md:text-4xl'>
 										12
 									</span>
 									<p className='text-muted-foreground text-sm'>
@@ -93,10 +93,10 @@ export function Trust() {
 										duration: 0.5,
 										delay: index * 0.1
 									}}
-									className='group bg-card hover:bg-secondary/50 border-border/50 rounded-2xl border p-6 transition-colors md:p-8'
+									className='group bg-card hover:bg-primary/5 border-border/50 rounded-2xl border p-6 transition-colors md:p-8'
 								>
 									<div className='flex gap-4 md:gap-6'>
-										<span className='text-accent text-sm font-medium'>
+										<span className='text-primary text-sm font-medium'>
 											{reason.number}
 										</span>
 										<div>

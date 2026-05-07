@@ -72,7 +72,7 @@ export function Services() {
 							className='group bg-background border-border/50 relative flex flex-col overflow-hidden rounded-2xl border transition-shadow hover:shadow-lg'
 						>
 							{/* Image container */}
-							<div className='bg-secondary/50 relative flex h-48 items-center justify-center overflow-hidden md:h-56'>
+							<div className='bg-primary/5 relative flex h-48 items-center justify-center overflow-hidden md:h-56'>
 								<div className='relative h-40 w-40 transition-transform duration-500 group-hover:scale-105 md:h-48 md:w-48'>
 									<Image
 										src={service.image}
@@ -94,10 +94,10 @@ export function Services() {
 
 								{/* Price and duration */}
 								<div className='flex items-center justify-between'>
-									<span className='text-foreground text-lg font-medium'>
+									<span className='text-primary text-lg font-medium'>
 										{service.price}
 									</span>
-									<span className='text-muted-foreground bg-secondary rounded-full px-3 py-1 text-xs font-medium'>
+									<span className='text-primary bg-primary/10 rounded-full px-3 py-1 text-xs font-medium'>
 										{service.duration}
 									</span>
 								</div>

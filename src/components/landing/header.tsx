@@ -74,7 +74,7 @@ export function Header() {
 						<Button
 							variant='default'
 							size='sm'
-							className='gap-2 rounded-full px-5'
+							className='bg-primary text-primary-foreground hover:bg-primary/90 gap-2 rounded-full px-5'
 						>
 							<Phone className='h-4 w-4' />
 							<span>+7 906 615-00-06</span>
@@ -90,7 +90,7 @@ export function Header() {
 						<Button
 							variant='default'
 							size='icon'
-							className='h-9 w-9 rounded-full'
+							className='bg-primary text-primary-foreground hover:bg-primary/90 h-9 w-9 rounded-full'
 						>
 							<Phone className='h-4 w-4' />
 						</Button>

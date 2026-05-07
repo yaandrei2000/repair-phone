@@ -45,7 +45,7 @@ export function HeroHighlight() {
 					<div className='flex flex-1 flex-col items-center text-center md:items-start md:text-left'>
 						<Badge
 							variant='secondary'
-							className='bg-secondary mb-6 rounded-full border-0 px-4 py-1.5 text-sm font-medium'
+							className='bg-primary/10 text-primary mb-6 rounded-full border-0 px-4 py-1.5 text-sm font-medium'
 						>
 							г. Владимир • Сервис по ремонту телефонов
 						</Badge>
@@ -77,7 +77,7 @@ export function HeroHighlight() {
 					{/* Right visual */}
 					<div className='relative flex flex-1 items-center justify-center'>
 						{/* Background shape */}
-						<div className='bg-secondary absolute h-72 w-72 rounded-full md:h-80 md:w-80 lg:h-96 lg:w-96' />
+						<div className='bg-primary/10 absolute h-72 w-72 rounded-full md:h-80 md:w-80 lg:h-96 lg:w-96' />
 
 						{/* Phone image with animation */}
 						<AnimatePresence mode='wait'>
@@ -114,7 +114,7 @@ export function HeroHighlight() {
 								className='bg-card absolute -right-4 bottom-4 z-20 rounded-2xl px-5 py-4 shadow-xl md:right-0 md:bottom-8'
 							>
 								<div className='flex items-center gap-3'>
-									<div className='bg-accent h-2.5 w-2.5 rounded-full' />
+									<div className='bg-primary h-2.5 w-2.5 rounded-full' />
 									<div>
 										<p className='text-foreground text-sm font-medium'>
 											{repairCards[currentIndex].device}

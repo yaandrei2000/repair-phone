@@ -56,8 +56,8 @@ export function ContactsSection() {
 										key={index}
 										className='group flex gap-4'
 									>
-										<div className='bg-secondary flex h-10 w-10 flex-none items-center justify-center rounded-xl'>
-											<Icon className='text-foreground h-5 w-5' />
+										<div className='bg-primary/10 flex h-10 w-10 flex-none items-center justify-center rounded-xl'>
+											<Icon className='text-primary h-5 w-5' />
 										</div>
 										<div>
 											<p className='text-muted-foreground mb-1 text-xs font-medium tracking-wider uppercase'>
@@ -79,7 +79,7 @@ export function ContactsSection() {
 											) : info.href ? (
 												<a
 													href={info.href}
-													className='text-foreground hover:text-accent text-base font-medium transition-colors'
+													className='text-foreground hover:text-primary text-base font-medium transition-colors'
 												>
 													{info.content}
 												</a>
@@ -106,7 +106,7 @@ export function ContactsSection() {
 						>
 							<Button
 								size='lg'
-								className='bg-accent text-accent-foreground hover:bg-accent/90 gap-2 rounded-full px-6'
+								className='bg-primary text-primary-foreground hover:bg-primary/90 gap-2 rounded-full px-6'
 							>
 								<Phone className='h-4 w-4' />
 								Позвонить
