@@ -95,7 +95,7 @@ export function Footer() {
 							+7 (906) 615-00-06
 						</a>
 						<p className='text-background/60 text-sm'>
-							г. Владимир, ул. Тракторная, 46/1
+							г. Владимир, ул. Тракторная, д. 46/1
 						</p>
 					</div>
 
