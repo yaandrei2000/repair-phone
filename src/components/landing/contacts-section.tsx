@@ -1,10 +1,10 @@
 'use client'
 
 import { Clock, MapPin, Phone } from 'lucide-react'
+import Image from 'next/image'
 import { motion } from 'motion/react'
 
 import { Button } from '@/components/ui/button'
-import { YandexMapOrganization } from '@/components/yandex-map'
 
 const contactInfo = [
 	{
@@ -27,8 +27,6 @@ const contactInfo = [
 ]
 
 export function ContactsSection() {
-	const organizationId = '124779220273'
-
 	return (
 		<section id='contacts' className='bg-background w-full'>
 			<div className='container mx-auto max-w-6xl px-5 py-16 md:px-8 md:py-24'>
@@ -114,18 +112,37 @@ export function ContactsSection() {
 						</a>
 					</motion.div>
 
-					{/* Right side - Map */}
+					{/* Right side - Entrance photo */}
 					<motion.div
 						initial={{ opacity: 0, y: 20 }}
 						whileInView={{ opacity: 1, y: 0 }}
 						viewport={{ once: true }}
 						transition={{ duration: 0.5, delay: 0.1 }}
-						className='flex-1 overflow-hidden rounded-2xl'
+						className='relative flex-1 overflow-hidden rounded-2xl'
 					>
-						<YandexMapOrganization
-							zoom={17}
-							organizationId={organizationId}
-						/>
+						<div className='relative aspect-[4/5] w-full lg:aspect-auto lg:h-full lg:min-h-[400px]'>
+							<Image
+								src='/images/entrance.png'
+								alt='Вход в сервис Крутой Сервис - ремонт телефонов во Владимире'
+								fill
+								className='object-cover'
+								sizes='(max-width: 1024px) 100vw, 50vw'
+							/>
+							{/* Overlay gradient */}
+							<div className='absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent' />
+							
+							{/* Badge */}
+							<div className='absolute bottom-4 left-4 right-4'>
+								<div className='bg-background/95 backdrop-blur-sm rounded-xl p-4'>
+									<p className='text-foreground font-medium text-sm'>
+										Ищите вывеску с Apple и Android
+									</p>
+									<p className='text-muted-foreground text-xs mt-1'>
+										Спуститесь по ступенькам - мы внутри!
+									</p>
+								</div>
+							</div>
+						</div>
 					</motion.div>
 				</div>
 			</div>

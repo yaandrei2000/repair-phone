@@ -2,10 +2,10 @@ import type { Metadata } from 'next'
 
 import { ContactsSection } from '@/components/landing/contacts-section'
 import { FAQ } from '@/components/landing/faq'
-import { FindUs } from '@/components/landing/find-us'
 import { Footer } from '@/components/landing/footer'
 import { Header } from '@/components/landing/header'
 import { HeroHighlight } from '@/components/landing/hero-highlight'
+import { MapSection } from '@/components/landing/map-section'
 import { Services } from '@/components/landing/services'
 import { Trust } from '@/components/landing/trust'
 import { StructuredData } from '@/components/seo/structured-data'
@@ -71,9 +71,9 @@ export default function Home() {
 				<HeroHighlight />
 				<Services />
 				<Trust />
-				<FindUs />
 				<FAQ />
 				<ContactsSection />
+				<MapSection />
 				<Footer />
 			</main>
 		</>
