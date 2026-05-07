@@ -118,28 +118,31 @@ export function ContactsSection() {
 						whileInView={{ opacity: 1, y: 0 }}
 						viewport={{ once: true }}
 						transition={{ duration: 0.5, delay: 0.1 }}
-						className='relative flex-1 overflow-hidden rounded-2xl'
+						className='relative flex-1'
 					>
-						<div className='relative aspect-[4/5] w-full lg:aspect-auto lg:h-full lg:min-h-[400px]'>
-							<Image
-								src='/images/entrance.png'
-								alt='Вход в сервис Крутой Сервис - ремонт телефонов во Владимире'
-								fill
-								className='object-cover'
-								sizes='(max-width: 1024px) 100vw, 50vw'
-							/>
-							{/* Overlay gradient */}
-							<div className='absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent' />
-							
-							{/* Badge */}
-							<div className='absolute bottom-4 left-4 right-4'>
-								<div className='bg-background/95 backdrop-blur-sm rounded-xl p-4'>
-									<p className='text-foreground font-medium text-sm'>
-										Ищите вывеску с Apple и Android
-									</p>
-									<p className='text-muted-foreground text-xs mt-1'>
-										Спуститесь по ступенькам - мы внутри!
-									</p>
+						<div className='bg-secondary relative overflow-hidden rounded-2xl'>
+							{/* Container for vertical image - 9:16 ratio like shorts */}
+							<div className='relative mx-auto aspect-[9/16] w-full max-w-[320px]'>
+								<Image
+									src='/images/entrance.png'
+									alt='Вход в сервис Крутой Сервис - ремонт телефонов во Владимире'
+									fill
+									className='object-cover'
+									sizes='320px'
+								/>
+								{/* Overlay gradient */}
+								<div className='absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent' />
+								
+								{/* Badge */}
+								<div className='absolute bottom-4 left-4 right-4'>
+									<div className='bg-background/95 backdrop-blur-sm rounded-xl p-4'>
+										<p className='text-foreground font-medium text-sm'>
+											Ищите вывеску с Apple и Android
+										</p>
+										<p className='text-muted-foreground text-xs mt-1'>
+											Спуститесь по ступенькам - мы внутри!
+										</p>
+									</div>
 								</div>
 							</div>
 						</div>
