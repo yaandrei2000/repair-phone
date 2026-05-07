@@ -1,6 +1,6 @@
 'use client'
 
-import { Clock, MapPin, Phone } from 'lucide-react'
+import { Clock, MapPin, Phone, Navigation } from 'lucide-react'
 import Image from 'next/image'
 import { motion } from 'motion/react'
 
@@ -30,14 +30,14 @@ export function ContactsSection() {
 	return (
 		<section id='contacts' className='bg-background w-full'>
 			<div className='container mx-auto max-w-6xl px-5 py-16 md:px-8 md:py-24'>
-				<div className='flex flex-col gap-10 lg:flex-row lg:gap-16'>
+				<div className='flex flex-col gap-10 lg:flex-row lg:items-center lg:gap-16'>
 					{/* Left side - Contact information */}
 					<motion.div
 						initial={{ opacity: 0, y: 20 }}
 						whileInView={{ opacity: 1, y: 0 }}
 						viewport={{ once: true }}
 						transition={{ duration: 0.5 }}
-						className='lg:w-2/5'
+						className='lg:w-1/2'
 					>
 						<h2 className='text-foreground mb-2 text-3xl font-medium tracking-tight md:text-4xl lg:text-5xl'>
 							Контакты
@@ -112,39 +112,71 @@ export function ContactsSection() {
 						</a>
 					</motion.div>
 
-					{/* Right side - Entrance photo */}
+					{/* Right side - Phone mockup with entrance photo */}
 					<motion.div
 						initial={{ opacity: 0, y: 20 }}
 						whileInView={{ opacity: 1, y: 0 }}
 						viewport={{ once: true }}
 						transition={{ duration: 0.5, delay: 0.1 }}
-						className='relative flex-1'
+						className='relative flex flex-1 justify-center'
 					>
-						<div className='bg-secondary relative overflow-hidden rounded-2xl'>
-							{/* Container for vertical image - 9:16 ratio like shorts */}
-							<div className='relative mx-auto aspect-[9/16] w-full max-w-[320px]'>
-								<Image
-									src='/images/entrance.png'
-									alt='Вход в сервис Крутой Сервис - ремонт телефонов во Владимире'
-									fill
-									className='object-cover'
-									sizes='320px'
-								/>
-								{/* Overlay gradient */}
-								<div className='absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent' />
-								
-								{/* Badge */}
-								<div className='absolute bottom-4 left-4 right-4'>
-									<div className='bg-background/95 backdrop-blur-sm rounded-xl p-4'>
-										<p className='text-foreground font-medium text-sm'>
-											Ищите вывеску с Apple и Android
-										</p>
-										<p className='text-muted-foreground text-xs mt-1'>
-											Спуститесь по ступенькам - мы внутри!
-										</p>
+						{/* Phone frame */}
+						<div className='relative'>
+							{/* Phone outer frame */}
+							<div className='relative rounded-[3rem] bg-foreground p-3 shadow-2xl'>
+								{/* Phone inner bezel */}
+								<div className='relative overflow-hidden rounded-[2.5rem] bg-black'>
+									{/* Dynamic Island / Notch */}
+									<div className='absolute top-3 left-1/2 z-20 h-7 w-24 -translate-x-1/2 rounded-full bg-black' />
+									
+									{/* Screen content - Image */}
+									<div className='relative aspect-[9/19] w-[280px]'>
+										<Image
+											src='/images/entrance.png'
+											alt='Вход в сервис - ремонт телефонов во Владимире'
+											fill
+											className='object-cover'
+											sizes='280px'
+										/>
+										
+										{/* Navigator-style overlay */}
+										<div className='absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/30' />
+										
+										{/* Top bar - like maps app */}
+										<div className='absolute top-12 left-4 right-4 z-10'>
+											<div className='flex items-center gap-2 rounded-xl bg-white/90 px-3 py-2 backdrop-blur-sm'>
+												<div className='flex h-6 w-6 items-center justify-center rounded-full bg-green-500'>
+													<Navigation className='h-3 w-3 text-white' />
+												</div>
+												<span className='text-xs font-medium text-gray-800'>
+													Крутой Сервис
+												</span>
+											</div>
+										</div>
+										
+										{/* Bottom card - arrival info */}
+										<div className='absolute bottom-4 left-3 right-3 z-10'>
+											<div className='rounded-2xl bg-white/95 p-4 backdrop-blur-sm'>
+												<div className='mb-2 flex items-center justify-between'>
+													<span className='text-lg font-bold text-gray-900'>
+														Вы на месте!
+													</span>
+													<span className='rounded-full bg-green-100 px-2 py-0.5 text-xs font-medium text-green-700'>
+														Открыто
+													</span>
+												</div>
+												<p className='text-sm text-gray-600'>
+													Ищите вывеску с Apple и Android, спуститесь по ступенькам
+												</p>
+											</div>
+										</div>
 									</div>
 								</div>
 							</div>
+							
+							{/* Decorative elements */}
+							<div className='absolute -right-4 -bottom-4 -z-10 h-32 w-32 rounded-full bg-accent/20 blur-2xl' />
+							<div className='absolute -left-6 -top-6 -z-10 h-24 w-24 rounded-full bg-secondary blur-xl' />
 						</div>
 					</motion.div>
 				</div>
