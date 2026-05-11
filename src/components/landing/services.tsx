@@ -3,32 +3,7 @@
 import { motion } from 'motion/react'
 import Image from 'next/image'
 
-const services = [
-	{
-		title: 'Замена дисплея',
-		description:
-			'Оригинальные и качественные OLED/LCD модули для iPhone, Samsung, Xiaomi.',
-		price: 'от 3 490 ₽',
-		duration: '40-60 мин',
-		image: '/phone-cracked-display.png'
-	},
-	{
-		title: 'Замена аккумулятора',
-		description:
-			'Быстро восстановим автономность устройства и проверим контроллер питания.',
-		price: 'от 2 190 ₽',
-		duration: '30-45 мин',
-		image: '/iphone-7-disassembled.png'
-	},
-	{
-		title: 'Замена разъёма',
-		description:
-			'Устраним проблему с зарядкой, заменим порт и проверим систему питания.',
-		price: 'от 1 790 ₽',
-		duration: '30-60 мин',
-		image: '/phone-charging-port-connected.png'
-	}
-]
+import { formatRubPrice, landingServices } from '@/lib/data/services'
 
 export function Services() {
 	return (
@@ -59,7 +34,7 @@ export function Services() {
 
 				{/* Services grid */}
 				<div className='grid gap-6 md:grid-cols-3 md:gap-8'>
-					{services.map((service, index) => (
+					{landingServices.map((service, index) => (
 						<motion.div
 							key={service.title}
 							initial={{ opacity: 0, y: 30 }}
@@ -95,7 +70,7 @@ export function Services() {
 								{/* Price and duration */}
 								<div className='flex items-center justify-between'>
 									<span className='text-foreground text-lg font-medium'>
-										{service.price}
+										{formatRubPrice(service.priceFrom)}
 									</span>
 									<span className='text-muted-foreground bg-secondary rounded-full px-3 py-1 text-xs font-medium'>
 										{service.duration}
