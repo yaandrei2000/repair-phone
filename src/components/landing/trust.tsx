@@ -2,6 +2,8 @@
 
 import { motion } from 'motion/react'
 
+import { fadeInView, useReducedMotion } from '@/lib/motion/use-reduced-motion'
+
 const reasons = [
 	{
 		number: '01',
@@ -23,60 +25,48 @@ const reasons = [
 	}
 ]
 
+const highlights = [
+	'Работаем с iPhone, Samsung, Xiaomi, Huawei',
+	'Бесплатная диагностика перед ремонтом',
+	'Гарантия на работы и установленные детали'
+]
+
 export function Trust() {
+	const reducedMotion = useReducedMotion()
+
 	return (
 		<section className='bg-background w-full'>
 			<div className='container mx-auto max-w-6xl px-5 py-16 md:px-8 md:py-24'>
 				<div className='flex flex-col gap-12 lg:flex-row lg:gap-20'>
-					{/* Left side - Big number */}
 					<motion.div
-						initial={{ opacity: 0, x: -30 }}
-						whileInView={{ opacity: 1, x: 0 }}
-						viewport={{ once: true }}
-						transition={{ duration: 0.6 }}
+						{...fadeInView(reducedMotion)}
 						className='lg:w-2/5'
 					>
-						<div className='sticky top-32'>
-							<span className='text-foreground text-8xl font-medium tracking-tight md:text-9xl'>
-								5+
-							</span>
-							<p className='text-foreground mt-2 text-xl font-medium md:text-2xl'>
-								лет практического опыта
+						<div className='border-border bg-secondary/40 rounded-2xl border p-6 md:p-8 lg:sticky lg:top-32'>
+							<p className='text-accent mb-3 text-xs font-medium tracking-wider uppercase'>
+								О мастерской
 							</p>
-							<p className='text-muted-foreground mt-2 text-base'>
-								в ремонте iPhone, Samsung, Xiaomi и других
-								популярных брендов
+							<p className='text-foreground text-lg leading-relaxed font-medium md:text-xl'>
+								Сервис во Владимире, где сначала объясняем
+								поломку и цену, а потом берёмся за ремонт.
 							</p>
-
-							{/* Mini stats */}
-							<div className='mt-8 flex gap-8'>
-								<div>
-									<span className='text-foreground text-3xl font-medium md:text-4xl'>
-										2000+
-									</span>
-									<p className='text-muted-foreground text-sm'>
-										ремонтов
-									</p>
-								</div>
-								<div>
-									<span className='text-foreground text-3xl font-medium md:text-4xl'>
-										12
-									</span>
-									<p className='text-muted-foreground text-sm'>
-										мес. гарантии
-									</p>
-								</div>
-							</div>
+							<ul className='text-muted-foreground mt-6 flex flex-col gap-3 text-sm leading-relaxed'>
+								{highlights.map(item => (
+									<li key={item} className='flex gap-3'>
+										<span
+											className='bg-accent mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full'
+											aria-hidden
+										/>
+										{item}
+									</li>
+								))}
+							</ul>
 						</div>
 					</motion.div>
 
-					{/* Right side - Reasons */}
 					<div className='flex flex-1 flex-col gap-6 lg:gap-8'>
 						<motion.h2
-							initial={{ opacity: 0, y: 20 }}
-							whileInView={{ opacity: 1, y: 0 }}
-							viewport={{ once: true }}
-							transition={{ duration: 0.5 }}
+							{...fadeInView(reducedMotion)}
 							className='text-foreground text-3xl font-medium tracking-tight md:text-4xl'
 						>
 							Почему выбирают нас
@@ -86,17 +76,11 @@ export function Trust() {
 							{reasons.map((reason, index) => (
 								<motion.div
 									key={reason.number}
-									initial={{ opacity: 0, y: 20 }}
-									whileInView={{ opacity: 1, y: 0 }}
-									viewport={{ once: true }}
-									transition={{
-										duration: 0.5,
-										delay: index * 0.1
-									}}
-									className='group bg-card hover:bg-secondary/50 border-border/50 rounded-2xl border p-6 transition-colors md:p-8'
+									{...fadeInView(reducedMotion, index * 0.08)}
+									className='group border-border/50 hover:bg-secondary/50 rounded-2xl border p-6 transition-colors md:p-8'
 								>
 									<div className='flex gap-4 md:gap-6'>
-										<span className='text-accent text-sm font-medium'>
+										<span className='text-accent text-sm font-medium tabular-nums'>
 											{reason.number}
 										</span>
 										<div>

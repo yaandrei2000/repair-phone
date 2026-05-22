@@ -48,91 +48,85 @@
 }
 
 :root {
-  /* Базовый радиус - более мягкие углы для премиального вида */
   --radius: 0.75rem;
-  /* Современные шрифты: Inter для всего */
-  --font-primary: var(--font-inter), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  --font-secondary: var(--font-inter), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-primary: var(--font-display), Georgia, "Times New Roman", serif;
+  --font-secondary: var(--font-body), system-ui, sans-serif;
 
-  /* V2: Кремово-белая палитра с тёмными акцентами */
-  --background: #FAF9F7; /* тёплый кремовый фон */
-  --foreground: #1A1A1A; /* глубокий чёрный текст */
+  --background: oklch(98.2% 0.009 82);
+  --foreground: oklch(22% 0.012 82);
 
-  --card: #FFFFFF;
-  --card-foreground: #1A1A1A;
+  --card: oklch(99.4% 0.007 82);
+  --card-foreground: oklch(22% 0.012 82);
 
-  --popover: #FFFFFF;
-  --popover-foreground: #1A1A1A;
+  --popover: oklch(99.4% 0.007 82);
+  --popover-foreground: oklch(22% 0.012 82);
 
-  /* Основной акцент – глубокий чёрный для премиальности */
-  --primary: #1A1A1A;
-  --primary-foreground: #FFFFFF;
+  --primary: oklch(22% 0.012 82);
+  --primary-foreground: oklch(99% 0.005 82);
 
-  --secondary: #F0EFED; /* мягкий серо-бежевый */
-  --secondary-foreground: #1A1A1A;
+  --secondary: oklch(94.5% 0.012 82);
+  --secondary-foreground: oklch(22% 0.012 82);
 
-  --muted: #E8E6E3;
-  --muted-foreground: #6B6B6B;
+  --muted: oklch(92% 0.014 82);
+  --muted-foreground: oklch(52% 0.018 82);
 
-  --accent: #E85A4F; /* терракотовый акцент для CTA */
-  --accent-foreground: #FFFFFF;
+  --accent: oklch(62% 0.17 28);
+  --accent-foreground: oklch(99% 0.005 82);
 
-  --destructive: #DC2626;
+  --destructive: oklch(55% 0.2 25);
 
-  --border: #E5E3DF;
-  --input: #E5E3DF;
-  --ring: #1A1A1A;
+  --border: oklch(90% 0.014 82);
+  --input: oklch(90% 0.014 82);
+  --ring: oklch(22% 0.012 82);
 
-  /* Графики */
-  --chart-1: #1A1A1A;
-  --chart-2: #E85A4F;
-  --chart-3: #6B6B6B;
-  --chart-4: #E8E6E3;
-  --chart-5: #FAF9F7;
+  --chart-1: oklch(22% 0.012 82);
+  --chart-2: oklch(62% 0.17 28);
+  --chart-3: oklch(52% 0.018 82);
+  --chart-4: oklch(92% 0.014 82);
+  --chart-5: oklch(98.2% 0.009 82);
 
-  --sidebar: #FFFFFF;
-  --sidebar-foreground: #1A1A1A;
-  --sidebar-primary: #1A1A1A;
-  --sidebar-primary-foreground: #FFFFFF;
-  --sidebar-accent: #F0EFED;
-  --sidebar-accent-foreground: #1A1A1A;
-  --sidebar-border: #E5E3DF;
-  --sidebar-ring: #1A1A1A;
+  --sidebar: oklch(99.4% 0.007 82);
+  --sidebar-foreground: oklch(22% 0.012 82);
+  --sidebar-primary: oklch(22% 0.012 82);
+  --sidebar-primary-foreground: oklch(99% 0.005 82);
+  --sidebar-accent: oklch(94.5% 0.012 82);
+  --sidebar-accent-foreground: oklch(22% 0.012 82);
+  --sidebar-border: oklch(90% 0.014 82);
+  --sidebar-ring: oklch(22% 0.012 82);
 }
 
 .dark {
-  /* Оставляем возможность тёмной темы, но можно позже донастроить */
-  --background: #0f0f0f;
-  --foreground: #faf8f5;
-  --card: #141414;
-  --card-foreground: #faf8f5;
-  --popover: #141414;
-  --popover-foreground: #faf8f5;
-  --primary: #c9a962;
-  --primary-foreground: #0a0a0a;
-  --secondary: #1a1a1a;
-  --secondary-foreground: #e8dfc9;
-  --muted: #171717;
-  --muted-foreground: #9b927e;
-  --accent: #1b1711;
-  --accent-foreground: #e8dfc9;
-  --destructive: #9f2f2f;
-  --border: #2a2419;
-  --input: #2a2419;
-  --ring: #c9a962;
-  --chart-1: #c9a962;
-  --chart-2: #6d8f4e;
-  --chart-3: #4f6f88;
-  --chart-4: #aa6a39;
-  --chart-5: #8f536d;
-  --sidebar: #0a0a0a;
-  --sidebar-foreground: #ede4d0;
-  --sidebar-primary: #c9a962;
-  --sidebar-primary-foreground: #0a0a0a;
-  --sidebar-accent: #181410;
-  --sidebar-accent-foreground: #ede4d0;
-  --sidebar-border: #2a2419;
-  --sidebar-ring: #c9a962;
+  --background: oklch(14% 0.01 82);
+  --foreground: oklch(96% 0.012 82);
+  --card: oklch(18% 0.012 82);
+  --card-foreground: oklch(96% 0.012 82);
+  --popover: oklch(18% 0.012 82);
+  --popover-foreground: oklch(96% 0.012 82);
+  --primary: oklch(78% 0.08 85);
+  --primary-foreground: oklch(14% 0.01 82);
+  --secondary: oklch(20% 0.012 82);
+  --secondary-foreground: oklch(92% 0.014 82);
+  --muted: oklch(22% 0.012 82);
+  --muted-foreground: oklch(68% 0.02 82);
+  --accent: oklch(72% 0.12 28);
+  --accent-foreground: oklch(14% 0.01 82);
+  --destructive: oklch(50% 0.16 25);
+  --border: oklch(28% 0.02 82);
+  --input: oklch(28% 0.02 82);
+  --ring: oklch(78% 0.08 85);
+  --chart-1: oklch(78% 0.08 85);
+  --chart-2: oklch(62% 0.17 28);
+  --chart-3: oklch(55% 0.04 250);
+  --chart-4: oklch(65% 0.1 55);
+  --chart-5: oklch(55% 0.06 340);
+  --sidebar: oklch(12% 0.01 82);
+  --sidebar-foreground: oklch(94% 0.012 82);
+  --sidebar-primary: oklch(78% 0.08 85);
+  --sidebar-primary-foreground: oklch(12% 0.01 82);
+  --sidebar-accent: oklch(18% 0.012 82);
+  --sidebar-accent-foreground: oklch(94% 0.012 82);
+  --sidebar-border: oklch(28% 0.02 82);
+  --sidebar-ring: oklch(78% 0.08 85);
 }
 
 @layer base {
@@ -141,7 +135,6 @@
   }
   body {
     @apply bg-background font-sans text-foreground antialiased;
-    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
   }
   h1,
   h2,
@@ -154,9 +147,26 @@
     letter-spacing: -0.03em;
     line-height: 1.1;
   }
-  
-  /* Плавные переходы */
-  a, button {
-    transition: all 0.2s ease;
+
+  a,
+  button {
+    transition:
+      color 0.2s ease,
+      background-color 0.2s ease,
+      border-color 0.2s ease,
+      opacity 0.2s ease,
+      box-shadow 0.2s ease,
+      transform 0.2s ease;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }

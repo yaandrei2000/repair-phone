@@ -5,6 +5,7 @@ import { motion } from 'motion/react'
 
 import { Button } from '@/components/ui/button'
 import { YandexMapOrganization } from '@/components/yandex-map'
+import { fadeInView, useReducedMotion } from '@/lib/motion/use-reduced-motion'
 
 const contactInfo = [
 	{
@@ -27,35 +28,29 @@ const contactInfo = [
 ]
 
 export function ContactsSection() {
+	const reducedMotion = useReducedMotion()
 	const organizationId = '124779220273'
 
 	return (
-		<section id='contacts' className='bg-background w-full'>
+		<section id='contacts' className='bg-background w-full scroll-mt-20'>
 			<div className='container mx-auto max-w-6xl px-5 py-16 md:px-8 md:py-24'>
 				<div className='flex flex-col gap-10 lg:flex-row lg:gap-16'>
-					{/* Left side - Contact information */}
 					<motion.div
-						initial={{ opacity: 0, y: 20 }}
-						whileInView={{ opacity: 1, y: 0 }}
-						viewport={{ once: true }}
-						transition={{ duration: 0.5 }}
+						{...fadeInView(reducedMotion)}
 						className='lg:w-2/5'
 					>
 						<h2 className='text-foreground mb-2 text-3xl font-medium tracking-tight md:text-4xl lg:text-5xl'>
 							Контакты
 						</h2>
 						<p className='text-muted-foreground mb-8 text-base'>
-							Приезжайте или звоните - ответим на любые вопросы
+							Приезжайте или звоните, ответим на любые вопросы
 						</p>
 
 						<div className='flex flex-col gap-6'>
 							{contactInfo.map((info, index) => {
 								const Icon = info.icon
 								return (
-									<div
-										key={index}
-										className='group flex gap-4'
-									>
+									<div key={index} className='flex gap-4'>
 										<div className='bg-secondary flex h-10 w-10 flex-none items-center justify-center rounded-xl'>
 											<Icon className='text-foreground h-5 w-5' />
 										</div>
@@ -99,27 +94,20 @@ export function ContactsSection() {
 							})}
 						</div>
 
-						{/* CTA Button */}
-						<a
-							href='tel:+79066150006'
-							className='mt-8 inline-block'
+						<Button
+							asChild
+							size='lg'
+							className='bg-accent text-accent-foreground hover:bg-accent/90 mt-8 gap-2 rounded-full px-6'
 						>
-							<Button
-								size='lg'
-								className='bg-accent text-accent-foreground hover:bg-accent/90 gap-2 rounded-full px-6'
-							>
+							<a href='tel:+79066150006'>
 								<Phone className='h-4 w-4' />
 								Позвонить
-							</Button>
-						</a>
+							</a>
+						</Button>
 					</motion.div>
 
-					{/* Right side - Map */}
 					<motion.div
-						initial={{ opacity: 0, y: 20 }}
-						whileInView={{ opacity: 1, y: 0 }}
-						viewport={{ once: true }}
-						transition={{ duration: 0.5, delay: 0.1 }}
+						{...fadeInView(reducedMotion, 0.1)}
 						className='flex-1 overflow-hidden rounded-2xl'
 					>
 						<YandexMapOrganization

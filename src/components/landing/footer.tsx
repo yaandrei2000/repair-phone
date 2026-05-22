@@ -1,5 +1,3 @@
-'use client'
-
 import { ArrowUpRight } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -17,7 +15,7 @@ const socialLinks = [
 	{
 		href: 'https://t.me/krutoyservis',
 		label: 'Telegram',
-		icon: 'https://thesvg.org/icons/telegram/default.svg'
+		icon: '/icons/telegram.svg'
 	}
 	// {
 	// 	href: 'https://max.ru/krutoyservis',

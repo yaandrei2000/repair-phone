@@ -1,5 +1,3 @@
-'use client'
-
 interface YandexMapProps {
 	zoom?: number
 	organizationId?: string

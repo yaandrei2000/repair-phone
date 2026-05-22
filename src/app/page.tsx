@@ -5,14 +5,18 @@ import { FAQ } from '@/components/landing/faq'
 import { Footer } from '@/components/landing/footer'
 import { Header } from '@/components/landing/header'
 import { HeroHighlight } from '@/components/landing/hero-highlight'
+import { RepairCalculator } from '@/components/landing/repair-calculator'
 import { Services } from '@/components/landing/services'
 import { Trust } from '@/components/landing/trust'
 import { StructuredData } from '@/components/seo/structured-data'
 
+const siteUrl =
+	process.env.NEXT_PUBLIC_SITE_URL || 'https://krutoyservice.ru'
+
 export const metadata: Metadata = {
-	title: 'Ремонт телефонов во Владимире - Крутой Сервис',
+	title: 'Ремонт телефонов во Владимире — за 30–90 мин | Крутой Сервис',
 	description:
-		'Профессиональный ремонт телефонов всех брендов во Владимире. Замена экрана, аккумулятора, разъемов за 30-90 минут. Гарантия 12 месяцев. Бесплатная диагностика. Рейтинг 4.9/5. ул. Тракторная, д. 46/1',
+		'Ремонт телефонов во Владимире: экран, батарея, вода, разъёмы. Работаем 30–90 мин, гарантия 12 месяцев, диагностика бесплатно. Рейтинг 4,9 — звоните сейчас.',
 	keywords: [
 		'ремонт смартфонов',
 		'ремонт телефонов',
@@ -31,19 +35,26 @@ export const metadata: Metadata = {
 	openGraph: {
 		type: 'website',
 		locale: 'ru_RU',
-		url: '/',
+		url: `${siteUrl}/`,
 		siteName: 'Крутой Сервис',
-		title: 'Крутой Сервис - Ремонт телефонов во Владимире',
+		title: 'Ремонт телефонов во Владимире — Крутой Сервис',
 		description:
-			'Ремонт телефонов всех брендов во Владимире. Замена экрана, аккумулятора, разъемов. Гарантия 12 месяцев. Бесплатная диагностика. Срочный ремонт за 30-90 минут.',
+			'Экран, батарея, вода, разъёмы. 30–90 мин, гарантия 12 мес, бесплатная диагностика.',
 		images: [
 			{
-				url: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://krutoyservice.ru'}/og-image.jpg`,
+				url: `${siteUrl}/og-image.jpg`,
 				width: 1200,
 				height: 630,
-				alt: 'Крутой Сервис - Ремонт телефонов'
+				alt: 'Крутой Сервис — ремонт телефонов во Владимире'
 			}
 		]
+	},
+	twitter: {
+		card: 'summary_large_image',
+		title: 'Ремонт телефонов во Владимире | Крутой Сервис',
+		description:
+			'Срочный ремонт с гарантией 12 мес. Бесплатная диагностика.',
+		images: [`${siteUrl}/og-image.jpg`]
 	},
 	robots: {
 		index: true,
@@ -57,7 +68,7 @@ export const metadata: Metadata = {
 		}
 	},
 	alternates: {
-		canonical: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://krutoyservice.ru'}/`
+		canonical: `${siteUrl}/`
 	}
 }
 
@@ -65,10 +76,14 @@ export default function Home() {
 	return (
 		<>
 			<StructuredData />
-			<main className='flex min-h-screen flex-col'>
+			<main
+				id='main-content'
+				className='flex min-h-screen flex-col scroll-mt-20'
+			>
 				<Header />
 				<HeroHighlight />
 				<Services />
+				<RepairCalculator />
 				<Trust />
 				<FAQ />
 				<ContactsSection />

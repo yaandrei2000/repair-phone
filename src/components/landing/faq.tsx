@@ -8,33 +8,18 @@ import {
 	AccordionItem,
 	AccordionTrigger
 } from '@/components/ui/accordion'
-
-const faqs = [
-	{
-		question: 'Сколько длится ремонт?',
-		answer: 'Большинство работ выполняем в течение 30-90 минут. Сложные случаи по плате занимают 1-3 дня.'
-	},
-	{
-		question: 'Вы используете оригинальные запчасти?',
-		answer: 'Да, по возможности ставим оригинал. Также можем предложить качественные аналоги в нескольких ценовых категориях.'
-	},
-	{
-		question: 'Что если телефон не включается после воды?',
-		answer: 'Сразу отключите устройство и не ставьте на зарядку. Привозите к нам на срочную диагностику.'
-	}
-]
+import { fadeInView, useReducedMotion } from '@/lib/motion/use-reduced-motion'
+import { siteFaqs } from '@/lib/seo/faqs'
 
 export function FAQ() {
+	const reducedMotion = useReducedMotion()
+
 	return (
 		<section className='bg-card w-full'>
 			<div className='container mx-auto max-w-6xl px-5 py-16 md:px-8 md:py-24'>
 				<div className='flex flex-col gap-10 lg:flex-row lg:gap-20'>
-					{/* Left - Title */}
 					<motion.div
-						initial={{ opacity: 0, y: 20 }}
-						whileInView={{ opacity: 1, y: 0 }}
-						viewport={{ once: true }}
-						transition={{ duration: 0.5 }}
+						{...fadeInView(reducedMotion)}
 						className='lg:w-1/3'
 					>
 						<h2 className='text-foreground text-3xl font-medium tracking-tight md:text-4xl lg:text-5xl'>
@@ -45,16 +30,12 @@ export function FAQ() {
 						</p>
 					</motion.div>
 
-					{/* Right - Accordion */}
 					<motion.div
-						initial={{ opacity: 0, y: 20 }}
-						whileInView={{ opacity: 1, y: 0 }}
-						viewport={{ once: true }}
-						transition={{ duration: 0.5, delay: 0.1 }}
+						{...fadeInView(reducedMotion, 0.1)}
 						className='flex-1'
 					>
 						<Accordion type='single' collapsible className='w-full'>
-							{faqs.map((faq, index) => (
+							{siteFaqs.map((faq, index) => (
 								<AccordionItem
 									key={index}
 									value={`item-${index}`}

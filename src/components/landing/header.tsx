@@ -4,9 +4,10 @@ import { Menu, Phone, X } from 'lucide-react'
 import { useMetrica } from 'next-yandex-metrica'
 import Image from 'next/image'
 import Link from 'next/link'
-import { useState } from 'react'
+import { useEffect, useId, useRef, useState } from 'react'
 
 import { Button } from '@/components/ui/button'
+import { useFocusTrap } from '@/lib/a11y/use-focus-trap'
 
 const reviewsLink =
 	'https://yandex.ru/maps/org/krutoy_servis/124779220273/reviews/?from=mapframe&indoorLevel=1&ll=40.384258%2C56.148629&z=17'
@@ -20,11 +21,31 @@ const navLinks = [
 export function Header() {
 	const { reachGoal } = useMetrica()
 	const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+	const menuId = useId()
+	const menuButtonRef = useRef<HTMLButtonElement>(null)
+	const menuPanelRef = useRef<HTMLDivElement>(null)
+
+	useFocusTrap(menuPanelRef, mobileMenuOpen)
+
+	useEffect(() => {
+		if (!mobileMenuOpen) return
+
+		const onKeyDown = (e: KeyboardEvent) => {
+			if (e.key === 'Escape') {
+				setMobileMenuOpen(false)
+				menuButtonRef.current?.focus()
+			}
+		}
+
+		document.addEventListener('keydown', onKeyDown)
+		menuPanelRef.current?.querySelector<HTMLElement>('a, button')?.focus()
+
+		return () => document.removeEventListener('keydown', onKeyDown)
+	}, [mobileMenuOpen])
 
 	return (
-		<header className='border-border/50 bg-background/90 sticky top-0 z-50 w-full border-b backdrop-blur-md'>
+		<header className='border-border/50 bg-background sticky top-0 z-50 w-full border-b'>
 			<div className='container mx-auto flex h-16 max-w-6xl items-center justify-between px-5 md:h-20 md:px-8'>
-				{/* Logo */}
 				<Link href='/' className='group flex items-center gap-2.5'>
 					<Image
 						src='/logo.png'
@@ -39,8 +60,10 @@ export function Header() {
 					</span>
 				</Link>
 
-				{/* Desktop Navigation */}
-				<nav className='hidden items-center gap-8 md:flex'>
+				<nav
+					className='hidden items-center gap-8 md:flex'
+					aria-label='Основная навигация'
+				>
 					{navLinks.map(link =>
 						link.external ? (
 							<a
@@ -64,57 +87,68 @@ export function Header() {
 					)}
 				</nav>
 
-				{/* Actions */}
 				<div className='flex items-center gap-3'>
-					<a
-						href='tel:+79066150006'
-						onClick={() => reachGoal('CALL_CLICK')}
-						className='hidden sm:block'
+					<Button
+						asChild
+						variant='default'
+						size='sm'
+						className='hidden gap-2 rounded-full px-5 sm:inline-flex'
 					>
-						<Button
-							variant='default'
-							size='sm'
-							className='gap-2 rounded-full px-5'
+						<a
+							href='tel:+79066150006'
+							onClick={() => reachGoal('CALL_CLICK')}
 						>
 							<Phone className='h-4 w-4' />
 							<span>+7 906 615-00-06</span>
-						</Button>
-					</a>
+						</a>
+					</Button>
 
-					{/* Mobile call button */}
-					<a
-						href='tel:+79066150006'
-						onClick={() => reachGoal('CALL_CLICK')}
-						className='sm:hidden'
+					<Button
+						asChild
+						variant='default'
+						size='icon'
+						className='h-11 w-11 rounded-full sm:hidden'
 					>
-						<Button
-							variant='default'
-							size='icon'
-							className='h-9 w-9 rounded-full'
+						<a
+							href='tel:+79066150006'
+							onClick={() => reachGoal('CALL_CLICK')}
+							aria-label='Позвонить +7 906 615-00-06'
 						>
 							<Phone className='h-4 w-4' />
-						</Button>
-					</a>
+						</a>
+					</Button>
 
-					{/* Mobile menu toggle */}
 					<button
-						onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-						className='text-foreground p-2 md:hidden'
-						aria-label='Меню'
+						ref={menuButtonRef}
+						type='button'
+						onClick={() => setMobileMenuOpen(open => !open)}
+						className='text-foreground flex h-11 w-11 items-center justify-center rounded-full md:hidden'
+						aria-label={mobileMenuOpen ? 'Закрыть меню' : 'Открыть меню'}
+						aria-expanded={mobileMenuOpen}
+						aria-controls={menuId}
 					>
 						{mobileMenuOpen ? (
-							<X className='h-5 w-5' />
+							<X className='h-5 w-5' aria-hidden />
 						) : (
-							<Menu className='h-5 w-5' />
+							<Menu className='h-5 w-5' aria-hidden />
 						)}
 					</button>
 				</div>
 			</div>
 
-			{/* Mobile Menu */}
 			{mobileMenuOpen && (
-				<div className='bg-background border-border/50 border-t md:hidden'>
-					<nav className='container mx-auto flex flex-col gap-1 px-5 py-4'>
+				<div
+					ref={menuPanelRef}
+					role='dialog'
+					aria-modal='true'
+					aria-label='Мобильное меню'
+					className='bg-background border-border/50 border-t md:hidden'
+				>
+					<nav
+						id={menuId}
+						className='container mx-auto flex flex-col gap-1 px-5 py-4'
+						aria-label='Мобильная навигация'
+					>
 						{navLinks.map(link =>
 							link.external ? (
 								<a
