@@ -12,7 +12,7 @@ const reviewsLink =
 	'https://yandex.ru/maps/org/krutoy_servis/124779220273/reviews/?from=mapframe&indoorLevel=1&ll=40.384258%2C56.148629&z=17'
 
 const navLinks = [
-	{ href: '/pricing', label: 'Цены' },
+	{ href: '/pricing/', label: 'Цены' },
 	{ href: reviewsLink, label: 'Отзывы', external: true },
 	{ href: '/#contacts', label: 'Контакты' }
 ]

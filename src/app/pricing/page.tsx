@@ -19,10 +19,10 @@ export const metadata: Metadata = {
 		title: 'Прайс-лист - Цены на ремонт телефонов во Владимире',
 		description:
 			'Прозрачные цены на ремонт телефонов. Замена экрана от 3490₽, аккумулятора от 2190₽. Бесплатная диагностика.',
-		url: '/pricing'
+		url: '/pricing/'
 	},
 	alternates: {
-		canonical: '/pricing'
+		canonical: '/pricing/'
 	}
 }
 

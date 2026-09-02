@@ -20,7 +20,7 @@ export async function GET() {
 
 ## Основные страницы
 - Главная: ${siteUrl}
-- Прайс-лист: ${siteUrl}/pricing
+- Прайс-лист: ${siteUrl}/pricing/
 
 ## Услуги
 1. Замена дисплея - от 3 490 ₽ (40-60 мин)
