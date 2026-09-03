@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { YandexMetricaProvider } from 'next-yandex-metrica'
 import { Inter } from 'next/font/google'
 
+import { siteConfig } from '@/lib/site-config'
 import '@/shared/styles/globals.css'
 
 const inter = Inter({
@@ -12,6 +13,7 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = {
+	metadataBase: new URL(siteConfig.url),
 	icons: {
 		icon: [{ url: '/favicon.svg', type: 'image/svg+xml' }]
 	}

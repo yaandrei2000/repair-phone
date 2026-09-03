@@ -1,5 +1,7 @@
 import { MetadataRoute } from 'next'
 
+import { getServiceUrl, servicePages } from '@/lib/site-config'
+
 export const dynamic = 'force-static'
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -18,6 +20,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
 			lastModified: new Date(),
 			changeFrequency: 'monthly',
 			priority: 0.8
-		}
+		},
+		...servicePages.map(service => ({
+			url: `${baseUrl}${getServiceUrl(service.slug)}`,
+			lastModified: new Date(),
+			changeFrequency: 'monthly' as const,
+			priority: 0.8
+		}))
 	]
 }

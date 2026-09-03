@@ -4,12 +4,17 @@ import { ArrowUpRight } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
 
-const reviewsLink =
-	'https://yandex.ru/maps/org/krutoy_servis/124779220273/reviews/?from=mapframe&indoorLevel=1&ll=40.384258%2C56.148629&z=17'
+import { TrackedLink } from '@/components/analytics/tracked-link'
+import { getServiceUrl, servicePages, siteConfig } from '@/lib/site-config'
 
-const navLinks = [
+const navLinks: Array<{
+	href: string
+	label: string
+	external?: boolean
+}> = [
 	{ href: '/pricing/', label: 'Цены' },
-	{ href: reviewsLink, label: 'Отзывы', external: true },
+	{ href: '/#services', label: 'Услуги' },
+	{ href: '/#reviews', label: 'Отзывы' },
 	{ href: '/#contacts', label: 'Контакты' }
 ]
 
@@ -83,17 +88,33 @@ export function Footer() {
 						)}
 					</nav>
 
+					<nav className='flex flex-col gap-3'>
+						<p className='text-background/40 mb-2 text-xs font-medium tracking-wider uppercase'>
+							Услуги
+						</p>
+						{servicePages.slice(0, 4).map(service => (
+							<Link
+								key={service.slug}
+								href={getServiceUrl(service.slug)}
+								className='text-background/80 hover:text-background text-sm'
+							>
+								{service.shortTitle}
+							</Link>
+						))}
+					</nav>
+
 					{/* Contact */}
 					<div className='flex flex-col gap-3'>
 						<p className='text-background/40 mb-2 text-xs font-medium tracking-wider uppercase'>
 							Контакты
 						</p>
-						<a
-							href='tel:+79066150006'
+						<TrackedLink
+							href={siteConfig.phoneHref}
+							goal='CALL_FOOTER'
 							className='text-background hover:text-background/80 text-sm font-medium transition-colors'
 						>
-							+7 (906) 615-00-06
-						</a>
+							{siteConfig.phone}
+						</TrackedLink>
 						<p className='text-background/60 text-sm'>
 							г. Владимир, ул. Тракторная, д. 46/1
 						</p>

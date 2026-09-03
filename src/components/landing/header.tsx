@@ -1,24 +1,26 @@
 'use client'
 
 import { Menu, Phone, X } from 'lucide-react'
-import { useMetrica } from 'next-yandex-metrica'
 import Image from 'next/image'
 import Link from 'next/link'
 import { useState } from 'react'
 
+import { TrackedLink } from '@/components/analytics/tracked-link'
 import { Button } from '@/components/ui/button'
+import { siteConfig } from '@/lib/site-config'
 
-const reviewsLink =
-	'https://yandex.ru/maps/org/krutoy_servis/124779220273/reviews/?from=mapframe&indoorLevel=1&ll=40.384258%2C56.148629&z=17'
-
-const navLinks = [
+const navLinks: Array<{
+	href: string
+	label: string
+	external?: boolean
+}> = [
 	{ href: '/pricing/', label: 'Цены' },
-	{ href: reviewsLink, label: 'Отзывы', external: true },
+	{ href: '/#services', label: 'Услуги' },
+	{ href: '/#reviews', label: 'Отзывы' },
 	{ href: '/#contacts', label: 'Контакты' }
 ]
 
 export function Header() {
-	const { reachGoal } = useMetrica()
 	const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
 	return (
@@ -66,35 +68,35 @@ export function Header() {
 
 				{/* Actions */}
 				<div className='flex items-center gap-3'>
-					<a
-						href='tel:+79066150006'
-						onClick={() => reachGoal('CALL_CLICK')}
-						className='hidden sm:block'
+					<Button
+						asChild
+						variant='default'
+						size='sm'
+						className='hidden gap-2 rounded-full px-5 sm:inline-flex'
 					>
-						<Button
-							variant='default'
-							size='sm'
-							className='gap-2 rounded-full px-5'
+						<TrackedLink
+							href={siteConfig.phoneHref}
+							goal='CALL_HEADER'
 						>
 							<Phone className='h-4 w-4' />
-							<span>+7 906 615-00-06</span>
-						</Button>
-					</a>
+							<span>{siteConfig.phone}</span>
+						</TrackedLink>
+					</Button>
 
 					{/* Mobile call button */}
-					<a
-						href='tel:+79066150006'
-						onClick={() => reachGoal('CALL_CLICK')}
-						className='sm:hidden'
+					<Button
+						asChild
+						variant='default'
+						size='icon'
+						className='h-9 w-9 rounded-full sm:hidden'
 					>
-						<Button
-							variant='default'
-							size='icon'
-							className='h-9 w-9 rounded-full'
+						<TrackedLink
+							href={siteConfig.phoneHref}
+							goal='CALL_HEADER_MOBILE'
 						>
 							<Phone className='h-4 w-4' />
-						</Button>
-					</a>
+						</TrackedLink>
+					</Button>
 
 					{/* Mobile menu toggle */}
 					<button

@@ -5,6 +5,8 @@ import { FAQ } from '@/components/landing/faq'
 import { Footer } from '@/components/landing/footer'
 import { Header } from '@/components/landing/header'
 import { HeroHighlight } from '@/components/landing/hero-highlight'
+import { MobileContactBar } from '@/components/landing/mobile-contact-bar'
+import { Reviews } from '@/components/landing/reviews'
 import { Services } from '@/components/landing/services'
 import { Trust } from '@/components/landing/trust'
 import { StructuredData } from '@/components/seo/structured-data'
@@ -12,7 +14,7 @@ import { StructuredData } from '@/components/seo/structured-data'
 export const metadata: Metadata = {
 	title: 'Ремонт телефонов во Владимире - Крутой Сервис',
 	description:
-		'Профессиональный ремонт телефонов всех брендов во Владимире. Замена экрана, аккумулятора, разъемов за 30-90 минут. Гарантия 12 месяцев. Бесплатная диагностика. Рейтинг 4.9/5. ул. Тракторная, д. 46/1',
+		'Ремонт телефонов во Владимире: экран, аккумулятор, разъём и последствия воды. Цены до начала работ, гарантия до 12 месяцев.',
 	keywords: [
 		'ремонт смартфонов',
 		'ремонт телефонов',
@@ -65,15 +67,17 @@ export default function Home() {
 	return (
 		<>
 			<StructuredData />
-			<main className='flex min-h-screen flex-col'>
+			<main className='flex min-h-screen flex-col pb-16 md:pb-0'>
 				<Header />
 				<HeroHighlight />
 				<Services />
 				<Trust />
+				<Reviews />
 				<FAQ />
 				<ContactsSection />
 				<Footer />
 			</main>
+			<MobileContactBar />
 		</>
 	)
 }

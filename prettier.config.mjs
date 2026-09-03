@@ -1,5 +1,5 @@
 /** @type {import("prettier").Config} */
-export default {
+const prettierConfig = {
 	trailingComma: 'none',
 	tabWidth: 4,
 	useTabs: true,
@@ -16,3 +16,5 @@ export default {
 		'prettier-plugin-tailwindcss'
 	]
 }
+
+export default prettierConfig

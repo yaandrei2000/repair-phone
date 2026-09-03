@@ -3,8 +3,10 @@
 import { Navigation } from 'lucide-react'
 import { motion } from 'motion/react'
 
+import { TrackedLink } from '@/components/analytics/tracked-link'
 import { Button } from '@/components/ui/button'
 import { YandexMapOrganization } from '@/components/yandex-map'
+import { siteConfig } from '@/lib/site-config'
 
 export function MapSection() {
 	const organizationId = '124779220273'
@@ -27,19 +29,21 @@ export function MapSection() {
 							ул. Тракторная, д. 46/1 — рядом с остановкой
 						</p>
 					</div>
-					<a
-						href='https://yandex.ru/maps/-/CHEtqCo6'
-						target='_blank'
-						rel='noopener noreferrer'
+					<Button
+						asChild
+						variant='outline'
+						className='gap-2 rounded-full'
 					>
-						<Button
-							variant='outline'
-							className='gap-2 rounded-full'
+						<TrackedLink
+							href={siteConfig.routeUrl}
+							target='_blank'
+							rel='noopener noreferrer'
+							goal='YANDEX_ROUTE_OPEN'
 						>
 							<Navigation className='h-4 w-4' />
 							Построить маршрут
-						</Button>
-					</a>
+						</TrackedLink>
+					</Button>
 				</motion.div>
 
 				<motion.div

@@ -3,8 +3,10 @@
 import { Clock, MapPin, Phone } from 'lucide-react'
 import { motion } from 'motion/react'
 
+import { TrackedLink } from '@/components/analytics/tracked-link'
 import { Button } from '@/components/ui/button'
 import { YandexMapOrganization } from '@/components/yandex-map'
+import { siteConfig } from '@/lib/site-config'
 
 const contactInfo = [
 	{
@@ -17,7 +19,7 @@ const contactInfo = [
 		icon: Phone,
 		label: 'Телефон',
 		content: '+7 (906) 615-00-06',
-		href: 'tel:+79066150006'
+		href: siteConfig.phoneHref
 	},
 	{
 		icon: Clock,
@@ -100,18 +102,19 @@ export function ContactsSection() {
 						</div>
 
 						{/* CTA Button */}
-						<a
-							href='tel:+79066150006'
-							className='mt-8 inline-block'
+						<Button
+							asChild
+							size='lg'
+							className='bg-accent text-accent-foreground hover:bg-accent/90 mt-8 gap-2 rounded-full px-6'
 						>
-							<Button
-								size='lg'
-								className='bg-accent text-accent-foreground hover:bg-accent/90 gap-2 rounded-full px-6'
+							<TrackedLink
+								href={siteConfig.phoneHref}
+								goal='CALL_CONTACTS'
 							>
 								<Phone className='h-4 w-4' />
 								Позвонить
-							</Button>
-						</a>
+							</TrackedLink>
+						</Button>
 					</motion.div>
 
 					{/* Right side - Map */}

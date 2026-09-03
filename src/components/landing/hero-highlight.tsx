@@ -4,6 +4,7 @@ import { AnimatePresence, motion } from 'motion/react'
 import Image from 'next/image'
 import { useEffect, useState } from 'react'
 
+import { ContactActions } from '@/components/landing/contact-actions'
 import { Badge } from '@/components/ui/badge'
 
 const repairCards = [
@@ -63,8 +64,10 @@ export function HeroHighlight() {
 							в день обращения и честная цена до старта работ.
 						</p>
 
+						<ContactActions placement='hero' showPricing />
+
 						{/* Address - Desktop */}
-						<div className='border-border hidden border-t pt-6 md:block'>
+						<div className='border-border mt-8 hidden border-t pt-6 md:block'>
 							<p className='text-foreground text-sm font-medium'>
 								ул. Тракторная, д. 46/1
 							</p>

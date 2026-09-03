@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
+import Link from 'next/link'
 
 import { Footer } from '@/components/landing/footer'
 import { Header } from '@/components/landing/header'
@@ -50,7 +51,7 @@ export default function GlobalNotFound() {
 									className='mt-4'
 									asChild
 								>
-									<a href='/'>Вернуться на главную</a>
+									<Link href='/'>Вернуться на главную</Link>
 								</Button>
 							</div>
 						</div>

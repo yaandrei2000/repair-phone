@@ -1,10 +1,14 @@
 'use client'
 
 import { motion } from 'motion/react'
+import Link from 'next/link'
+
+import { getServiceUrl } from '@/lib/site-config'
 
 const pricingCategories = [
 	{
 		category: 'Замена дисплея',
+		slug: 'zamena-displeya',
 		services: [
 			{
 				device: 'iPhone 12/13/14',
@@ -34,6 +38,7 @@ const pricingCategories = [
 	},
 	{
 		category: 'Замена аккумулятора',
+		slug: 'zamena-akkumulyatora',
 		services: [
 			{
 				device: 'iPhone 12/13/14',
@@ -63,6 +68,7 @@ const pricingCategories = [
 	},
 	{
 		category: 'Восстановление после воды',
+		slug: 'remont-posle-vody',
 		services: [
 			{
 				device: 'Диагностика',
@@ -92,6 +98,7 @@ const pricingCategories = [
 	},
 	{
 		category: 'Замена разъемов',
+		slug: 'zamena-razema-zaryadki',
 		services: [
 			{
 				device: 'Разъем зарядки',
@@ -115,6 +122,7 @@ const pricingCategories = [
 	},
 	{
 		category: 'Другие услуги',
+		slug: null,
 		services: [
 			{
 				device: 'Замена задней крышки',
@@ -156,9 +164,19 @@ export function PricingTable() {
 					transition={{ duration: 0.5, delay: categoryIndex * 0.05 }}
 					className='flex flex-col gap-5'
 				>
-					<h2 className='text-foreground text-xl font-medium md:text-2xl'>
-						{category.category}
-					</h2>
+					<div className='flex items-center justify-between gap-4'>
+						<h2 className='text-foreground text-xl font-medium md:text-2xl'>
+							{category.category}
+						</h2>
+						{category.slug && (
+							<Link
+								href={getServiceUrl(category.slug)}
+								className='text-muted-foreground hover:text-foreground text-sm font-medium'
+							>
+								Подробнее
+							</Link>
+						)}
+					</div>
 					<div className='bg-card border-border/50 overflow-hidden rounded-2xl border'>
 						{category.services.map((service, serviceIndex) => (
 							<div

@@ -1,10 +1,18 @@
 import { NextResponse } from 'next/server'
 
+import { getServiceUrl, servicePages } from '@/lib/site-config'
+
 export const dynamic = 'force-static'
 
 export async function GET() {
 	const siteUrl =
 		process.env.NEXT_PUBLIC_SITE_URL || 'https://krutoyservice.ru'
+	const serviceLinks = servicePages
+		.map(
+			service =>
+				`- ${service.shortTitle}: ${siteUrl}${getServiceUrl(service.slug)} — ${service.price}, ${service.duration}`
+		)
+		.join('\n')
 	const llmsContent = `# llms.txt для Крутой Сервис
 
 ## О сайте
@@ -19,26 +27,17 @@ export async function GET() {
 - Рейтинг: 4.9/5 по отзывам клиентов
 
 ## Основные страницы
-- Главная: ${siteUrl}
+- Главная: ${siteUrl}/
 - Прайс-лист: ${siteUrl}/pricing/
 
-## Услуги
-1. Замена дисплея - от 3 490 ₽ (40-60 мин)
-   - Оригинальные и качественные OLED/LCD модули для iPhone, Samsung, Xiaomi
-
-2. Замена аккумулятора - от 2 190 ₽ (30-45 мин)
-   - Быстрое восстановление автономности устройства и проверка контроллера питания
-
-3. Замена разъёма зарядки - от 1 790 ₽ (30-60 мин)
-   - Устранение проблемы с зарядкой, замена порта и проверка системы питания устройства
+## Страницы услуг
+${serviceLinks}
 
 ## Ключевые особенности
 - Гарантия до 12 месяцев
-- Бесплатная диагностика
 - Срочный ремонт за 30-90 минут
 - Прозрачные цены до начала работ
-- Фотоотчет работ
-- Курьер по городу в день обращения
+- Диагностика и согласование работ до ремонта
 
 ## Частые вопросы
 1. Сколько длится ремонт?
@@ -54,7 +53,6 @@ export async function GET() {
 - Сразу говорим правду о состоянии телефона
 - Каждый этап прозрачен для клиента
 - Относимся к репутации как к самому дорогому девайсу
-- 2 500+ ремонтов в месяц
 - 4.9/5 по отзывам
 - Гарантия до 12 месяцев
 
